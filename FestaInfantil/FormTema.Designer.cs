@@ -75,10 +75,12 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(510, 220);
+            ControlBox = false;
             Controls.Add(controlBotoes);
             Controls.Add(labelItens);
             Controls.Add(textBox1);
             Controls.Add(labelNome);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormTema";
             Text = "Cadastro de Temas";

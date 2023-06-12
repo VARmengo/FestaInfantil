@@ -29,15 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFesta));
-            txtNome = new TextBox();
-            labelNome = new Label();
-            mtbTelefone = new MaskedTextBox();
-            labelTelefone = new Label();
             labelEndereço = new Label();
             txtEndereco = new TextBox();
-            panelCliente = new Panel();
-            labelCPF = new Label();
-            mtbCPF = new MaskedTextBox();
             cmbTema = new ComboBox();
             labelTema = new Label();
             labelData = new Label();
@@ -48,50 +41,9 @@
             labelHoraF = new Label();
             labelHoraI = new Label();
             controlBotoes = new Botoes();
-            titleCliente = new Label();
             titelFesta = new Label();
-            panelCliente.SuspendLayout();
             panelFesta.SuspendLayout();
             SuspendLayout();
-            // 
-            // txtNome
-            // 
-            txtNome.BackColor = Color.White;
-            txtNome.Location = new Point(69, 16);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(292, 23);
-            txtNome.TabIndex = 0;
-            // 
-            // labelNome
-            // 
-            labelNome.AutoSize = true;
-            labelNome.BackColor = Color.Transparent;
-            labelNome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelNome.Location = new Point(9, 16);
-            labelNome.Name = "labelNome";
-            labelNome.Size = new Size(54, 18);
-            labelNome.TabIndex = 1;
-            labelNome.Text = "Nome:";
-            // 
-            // mtbTelefone
-            // 
-            mtbTelefone.BackColor = Color.White;
-            mtbTelefone.Location = new Point(85, 45);
-            mtbTelefone.Mask = "(00)00000-0000";
-            mtbTelefone.Name = "mtbTelefone";
-            mtbTelefone.Size = new Size(92, 23);
-            mtbTelefone.TabIndex = 1;
-            // 
-            // labelTelefone
-            // 
-            labelTelefone.AutoSize = true;
-            labelTelefone.BackColor = Color.Transparent;
-            labelTelefone.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTelefone.Location = new Point(9, 50);
-            labelTelefone.Name = "labelTelefone";
-            labelTelefone.Size = new Size(70, 18);
-            labelTelefone.TabIndex = 3;
-            labelTelefone.Text = "Telefone:";
             // 
             // labelEndereço
             // 
@@ -111,40 +63,6 @@
             txtEndereco.Name = "txtEndereco";
             txtEndereco.Size = new Size(292, 23);
             txtEndereco.TabIndex = 3;
-            // 
-            // panelCliente
-            // 
-            panelCliente.BorderStyle = BorderStyle.FixedSingle;
-            panelCliente.Controls.Add(labelCPF);
-            panelCliente.Controls.Add(mtbCPF);
-            panelCliente.Controls.Add(labelNome);
-            panelCliente.Controls.Add(txtNome);
-            panelCliente.Controls.Add(labelTelefone);
-            panelCliente.Controls.Add(mtbTelefone);
-            panelCliente.Location = new Point(12, 12);
-            panelCliente.Name = "panelCliente";
-            panelCliente.Size = new Size(408, 115);
-            panelCliente.TabIndex = 6;
-            // 
-            // labelCPF
-            // 
-            labelCPF.AutoSize = true;
-            labelCPF.BackColor = Color.Transparent;
-            labelCPF.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelCPF.Location = new Point(9, 79);
-            labelCPF.Name = "labelCPF";
-            labelCPF.Size = new Size(45, 18);
-            labelCPF.TabIndex = 5;
-            labelCPF.Text = "CPF:";
-            // 
-            // mtbCPF
-            // 
-            mtbCPF.BackColor = Color.White;
-            mtbCPF.Location = new Point(60, 74);
-            mtbCPF.Mask = "000.000.000-00";
-            mtbCPF.Name = "mtbCPF";
-            mtbCPF.Size = new Size(90, 23);
-            mtbCPF.TabIndex = 2;
             // 
             // cmbTema
             // 
@@ -197,7 +115,7 @@
             panelFesta.Controls.Add(dtpData);
             panelFesta.Controls.Add(cmbTema);
             panelFesta.Controls.Add(labelData);
-            panelFesta.Location = new Point(12, 149);
+            panelFesta.Location = new Point(12, 12);
             panelFesta.Name = "panelFesta";
             panelFesta.Size = new Size(408, 172);
             panelFesta.TabIndex = 10;
@@ -243,28 +161,17 @@
             // controlBotoes
             // 
             controlBotoes.BackColor = Color.Transparent;
-            controlBotoes.Location = new Point(108, 327);
+            controlBotoes.Location = new Point(102, 190);
             controlBotoes.Name = "controlBotoes";
             controlBotoes.Size = new Size(216, 91);
             controlBotoes.TabIndex = 11;
-            // 
-            // titleCliente
-            // 
-            titleCliente.AutoSize = true;
-            titleCliente.BackColor = SystemColors.Control;
-            titleCliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            titleCliente.Location = new Point(16, 8);
-            titleCliente.Name = "titleCliente";
-            titleCliente.Size = new Size(126, 18);
-            titleCliente.TabIndex = 12;
-            titleCliente.Text = "Cadastro Cliente";
             // 
             // titelFesta
             // 
             titelFesta.AutoSize = true;
             titelFesta.BackColor = SystemColors.Control;
             titelFesta.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            titelFesta.Location = new Point(16, 146);
+            titelFesta.Location = new Point(16, 9);
             titelFesta.Name = "titelFesta";
             titelFesta.Size = new Size(117, 18);
             titelFesta.TabIndex = 13;
@@ -274,19 +181,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(433, 420);
+            ClientSize = new Size(433, 284);
             ControlBox = false;
             Controls.Add(titelFesta);
-            Controls.Add(titleCliente);
             Controls.Add(controlBotoes);
             Controls.Add(panelFesta);
-            Controls.Add(panelCliente);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormFesta";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Cadastro de Festas";
-            panelCliente.ResumeLayout(false);
-            panelCliente.PerformLayout();
             panelFesta.ResumeLayout(false);
             panelFesta.PerformLayout();
             ResumeLayout(false);
@@ -294,14 +197,8 @@
         }
 
         #endregion
-
-        private TextBox txtNome;
-        private Label labelNome;
-        private MaskedTextBox mtbTelefone;
-        private Label labelTelefone;
         private Label labelEndereço;
         private TextBox txtEndereco;
-        private Panel panelCliente;
         private DateTimePicker dtpData;
         private Label labelData;
         private Label labelTema;
@@ -309,12 +206,9 @@
         private Panel panelFesta;
         private Label labelHoraI;
         private Label labelHoraF;
-        private Label labelCPF;
-        private MaskedTextBox mtbCPF;
         private MaskedTextBox mkbHoraF;
         private MaskedTextBox mtbHoraI;
         private Botoes controlBotoes;
         private Label titelFesta;
-        private Label titleCliente;
     }
 }

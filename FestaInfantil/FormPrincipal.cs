@@ -1,17 +1,85 @@
+using FestaInfantil.Compartilhado;
+using FestaInfantil.ModuloClientes;
+
 namespace FestaInfantil
 {
     public partial class FormPrincipal : Form
     {
+        private ControladorBase controlador;
+        private RepositorioCliente repositorioCliente = new RepositorioCliente();
+        private static FormPrincipal formPrincipal;
         public FormPrincipal()
         {
             InitializeComponent();
+            formPrincipal = this;
+        }
+        public static FormPrincipal Principal
+        {
+            get
+            {
+                return formPrincipal;
+            }
+        }
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorCliente(repositorioCliente);
+            ConfigurarTelaPrincipal();
         }
 
-        private void btnTeste_Click(object sender, EventArgs e)
+        private void ConfigurarTelaPrincipal()
         {
-            FormFesta formFesta = new FormFesta();
+            labelTitle.Text = controlador.ObterTipoCadastro();
+            labelRodape.Text = controlador.ObterTipoCadastro();
+            ConfigurarToolTips(new ControladorCliente(repositorioCliente));
+            ConfigurarListagem(controlador);
+        }
 
-            formFesta.ShowDialog();
+        private void ConfigurarToolTips(ControladorBase controlador)
+        {
+            btnAdicionar.ToolTipText = controlador.ToolTipInserir;
+            btnEditar.ToolTipText = controlador.ToolTipEditar;
+            btnExcluir.ToolTipText = controlador.ToolTipExcluir;
+        }
+
+        private void ConfigurarListagem(ControladorBase controladorBase)
+        {
+            UserControl listagem = controladorBase.ObterListagem();
+
+            listagem.Dock = DockStyle.Fill;
+            panelRegistros.Controls.Clear();
+            panelRegistros.Controls.Add(listagem);
+        }
+
+        public void AtualizarRodape(string mensagem)
+        {
+            labelRodape.Text = mensagem;
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            if (controlador == null)
+            {
+                MessageBox.Show("Escolha um cadastro primeiro!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            controlador.Inserir();
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormInfo formInfo = new FormInfo();
+
+            formInfo.ShowDialog();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            controlador.Editar();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            controlador.Excluir();
         }
     }
 }

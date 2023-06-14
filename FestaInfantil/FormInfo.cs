@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace FestaInfantil
 {
-    public partial class FormClientes : Form
+    public partial class FormInfo : Form
     {
-        public FormClientes()
+        public FormInfo()
         {
             InitializeComponent();
-            botoes.btnSair.Click += btnSair_Click;
-        }
-
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

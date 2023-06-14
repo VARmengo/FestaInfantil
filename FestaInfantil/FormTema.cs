@@ -15,6 +15,17 @@ namespace FestaInfantil
         public FormTema()
         {
             InitializeComponent();
+            controlBotoes.btnSair.Click += btnSair_Click;
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void FormTema_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

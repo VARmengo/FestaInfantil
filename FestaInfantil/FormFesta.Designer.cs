@@ -42,6 +42,8 @@
             labelHoraI = new Label();
             controlBotoes = new Botoes();
             titelFesta = new Label();
+            labelID = new Label();
+            txtId = new TextBox();
             panelFesta.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             labelEndereço.AutoSize = true;
             labelEndereço.BackColor = Color.Transparent;
             labelEndereço.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelEndereço.Location = new Point(17, 17);
+            labelEndereço.Location = new Point(14, 50);
             labelEndereço.Name = "labelEndereço";
             labelEndereço.Size = new Size(80, 18);
             labelEndereço.TabIndex = 5;
@@ -59,7 +61,7 @@
             // txtEndereco
             // 
             txtEndereco.BackColor = Color.White;
-            txtEndereco.Location = new Point(103, 17);
+            txtEndereco.Location = new Point(100, 50);
             txtEndereco.Name = "txtEndereco";
             txtEndereco.Size = new Size(292, 23);
             txtEndereco.TabIndex = 3;
@@ -67,7 +69,7 @@
             // cmbTema
             // 
             cmbTema.FormattingEnabled = true;
-            cmbTema.Location = new Point(69, 44);
+            cmbTema.Location = new Point(66, 77);
             cmbTema.Name = "cmbTema";
             cmbTema.Size = new Size(131, 23);
             cmbTema.TabIndex = 4;
@@ -77,7 +79,7 @@
             labelTema.AutoSize = true;
             labelTema.BackColor = Color.Transparent;
             labelTema.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTema.Location = new Point(17, 44);
+            labelTema.Location = new Point(14, 77);
             labelTema.Name = "labelTema";
             labelTema.Size = new Size(50, 18);
             labelTema.TabIndex = 7;
@@ -88,7 +90,7 @@
             labelData.AutoSize = true;
             labelData.BackColor = Color.Transparent;
             labelData.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelData.Location = new Point(17, 71);
+            labelData.Location = new Point(14, 104);
             labelData.Name = "labelData";
             labelData.Size = new Size(46, 18);
             labelData.TabIndex = 8;
@@ -97,7 +99,7 @@
             // dtpData
             // 
             dtpData.Format = DateTimePickerFormat.Short;
-            dtpData.Location = new Point(69, 71);
+            dtpData.Location = new Point(66, 104);
             dtpData.Name = "dtpData";
             dtpData.Size = new Size(97, 23);
             dtpData.TabIndex = 5;
@@ -105,6 +107,8 @@
             // panelFesta
             // 
             panelFesta.BorderStyle = BorderStyle.FixedSingle;
+            panelFesta.Controls.Add(labelID);
+            panelFesta.Controls.Add(txtId);
             panelFesta.Controls.Add(mkbHoraF);
             panelFesta.Controls.Add(mtbHoraI);
             panelFesta.Controls.Add(labelHoraF);
@@ -117,12 +121,12 @@
             panelFesta.Controls.Add(labelData);
             panelFesta.Location = new Point(12, 12);
             panelFesta.Name = "panelFesta";
-            panelFesta.Size = new Size(408, 172);
+            panelFesta.Size = new Size(408, 206);
             panelFesta.TabIndex = 10;
             // 
             // mkbHoraF
             // 
-            mkbHoraF.Location = new Point(100, 132);
+            mkbHoraF.Location = new Point(97, 165);
             mkbHoraF.Mask = "00:00";
             mkbHoraF.Name = "mkbHoraF";
             mkbHoraF.Size = new Size(38, 23);
@@ -130,7 +134,7 @@
             // 
             // mtbHoraI
             // 
-            mtbHoraI.Location = new Point(100, 106);
+            mtbHoraI.Location = new Point(97, 139);
             mtbHoraI.Mask = "00:00";
             mtbHoraI.Name = "mtbHoraI";
             mtbHoraI.Size = new Size(38, 23);
@@ -141,7 +145,7 @@
             labelHoraF.AutoSize = true;
             labelHoraF.BackColor = Color.Transparent;
             labelHoraF.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelHoraF.Location = new Point(18, 132);
+            labelHoraF.Location = new Point(15, 165);
             labelHoraF.Name = "labelHoraF";
             labelHoraF.Size = new Size(88, 18);
             labelHoraF.TabIndex = 12;
@@ -152,7 +156,7 @@
             labelHoraI.AutoSize = true;
             labelHoraI.BackColor = Color.Transparent;
             labelHoraI.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelHoraI.Location = new Point(17, 106);
+            labelHoraI.Location = new Point(14, 139);
             labelHoraI.Name = "labelHoraI";
             labelHoraI.Size = new Size(89, 18);
             labelHoraI.TabIndex = 10;
@@ -161,7 +165,7 @@
             // controlBotoes
             // 
             controlBotoes.BackColor = Color.Transparent;
-            controlBotoes.Location = new Point(102, 190);
+            controlBotoes.Location = new Point(108, 224);
             controlBotoes.Name = "controlBotoes";
             controlBotoes.Size = new Size(216, 91);
             controlBotoes.TabIndex = 11;
@@ -177,11 +181,33 @@
             titelFesta.TabIndex = 13;
             titelFesta.Text = "Cadastro Festa";
             // 
+            // labelID
+            // 
+            labelID.AutoSize = true;
+            labelID.BackColor = Color.Transparent;
+            labelID.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelID.Location = new Point(15, 23);
+            labelID.Name = "labelID";
+            labelID.Size = new Size(27, 18);
+            labelID.TabIndex = 16;
+            labelID.Text = "ID:";
+            // 
+            // txtId
+            // 
+            txtId.BackColor = Color.White;
+            txtId.Location = new Point(48, 23);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(33, 23);
+            txtId.TabIndex = 15;
+            txtId.Text = "0";
+            txtId.TextAlign = HorizontalAlignment.Center;
+            // 
             // FormFesta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(433, 284);
+            ClientSize = new Size(433, 323);
             ControlBox = false;
             Controls.Add(titelFesta);
             Controls.Add(controlBotoes);
@@ -210,5 +236,7 @@
         private MaskedTextBox mtbHoraI;
         private Botoes controlBotoes;
         private Label titelFesta;
+        private Label labelID;
+        private TextBox txtId;
     }
 }

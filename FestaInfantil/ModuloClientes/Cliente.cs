@@ -2,7 +2,7 @@
 
 namespace FestaInfantil.ModuloClientes
 {
-    public class Cliente : EntidadeBase
+    public class Cliente : EntidadeBase<Cliente>
     {
         public int id;
         public string nome;
@@ -14,6 +14,11 @@ namespace FestaInfantil.ModuloClientes
             this.nome = nome;
             this.telefone = telefone;
             this.cpf = cpf;
+        }
+
+        public override void AtualizarInformacoes(Cliente registroAtualizado)
+        {
+            throw new NotImplementedException();
         }
 
         public override string ToString()

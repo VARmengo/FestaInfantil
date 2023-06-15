@@ -5,15 +5,19 @@ namespace FestaInfantil.ModuloTema
     public class Tema : EntidadeBase<Tema>
     {
         public string tema;
+        public List<ItemTema> itemsDeTema;
 
         public Tema(string tema)
         {
             this.tema = tema;
+            this.itemsDeTema = new List<ItemTema>();
         }
 
         public override void AtualizarInformacoes(Tema registroAtualizado)
         {
             this.tema = registroAtualizado.tema;
+            this.itemsDeTema.Clear();
+            this.itemsDeTema = registroAtualizado.itemsDeTema;
         }
 
         public override string ToString()

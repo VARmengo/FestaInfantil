@@ -26,6 +26,7 @@ namespace FestaInfantil.ModuloTema
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Tema tema = telaTema.ObterTema();
+                telaTema.ConfigurarCheckBoxSelecionados(tema.itemsDeTema);
 
                 repositorioTema.Inserir(tema);
 
@@ -50,13 +51,15 @@ namespace FestaInfantil.ModuloTema
 
             FormTema telaTema = new FormTema();
 
-            telaTema.ConfigurarTela(temaSelecionado);
+            telaTema.ConfigurarTela(temaSelecionado, temaSelecionado.itemsDeTema);
 
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Tema tema = telaTema.ObterTema();
+                tema.itemsDeTema.Clear();
+                telaTema.ConfigurarCheckBoxSelecionados(tema.itemsDeTema);
 
                 repositorioTema.Editar(tema.id, tema);
 
@@ -91,7 +94,6 @@ namespace FestaInfantil.ModuloTema
                 CarregarTemas();
             }
         }
-
 
         public override UserControl ObterListagem()
         {

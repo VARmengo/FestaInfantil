@@ -5,7 +5,6 @@ namespace FestaInfantil
 {
     public partial class FormTema : Form
     {
-        private Tema tema;
         public FormTema()
         {
             InitializeComponent();
@@ -14,13 +13,13 @@ namespace FestaInfantil
             controlBotoes.btnSalvar.DialogResult = DialogResult.OK;
         }
 
-        
-
         private void btnSalvar_Click(object? sender, EventArgs e)
         {
             FormPrincipal principal = FormPrincipal.Principal;
 
             Tema tema = ObterTema();
+
+            ConfigurarCheckBoxSelecionados(tema.itemsDeTema);
 
             string[] erros = tema.Validar();
 
@@ -53,17 +52,45 @@ namespace FestaInfantil
 
             Tema tema = new Tema(tituloTema);
 
-            if(id > 0 )
+            if (id > 0)
                 tema.id = id;
 
             return tema;
         }
 
-        public void ConfigurarTela(Tema temaSelecionado)
+        public void ConfigurarTela(Tema temaSelecionado, List<ItemTema> itensSelecionados)
         {
             txtId.Text = temaSelecionado.id.ToString();
             txtTema.Text = temaSelecionado.tema;
 
+            chbConfeitaria.Checked = itensSelecionados.Any(item => item.Nome == chbConfeitaria.Text);
+            chbSalgadinhos.Checked = itensSelecionados.Any(item => item.Nome == chbSalgadinhos.Text);
+            chbDecoracao.Checked = itensSelecionados.Any(item => item.Nome == chbDecoracao.Text);
+            chbLembrancas.Checked = itensSelecionados.Any(item => item.Nome == chbLembrancas.Text);
+            chbDescartaveis.Checked = itensSelecionados.Any(item => item.Nome == chbDescartaveis.Text);
+            chbFantasias.Checked = itensSelecionados.Any(item => item.Nome == chbFantasias.Text);
+        }
+
+        public void ConfigurarCheckBoxSelecionados(List<ItemTema> items)
+        {
+            CheckBox[] checkBoxes = 
+            {
+                chbConfeitaria,
+                chbSalgadinhos,
+                chbDecoracao,
+                chbLembrancas,
+                chbDescartaveis,
+                chbFantasias
+            };
+
+            foreach (CheckBox checkBox in checkBoxes)
+            {
+                if (checkBox.Checked)
+                {
+                    items.RemoveAll(x => x.Nome == checkBox.Text);
+                    items.Add(new ItemTema(checkBox.Text));
+                }
+            }
         }
     }
 }

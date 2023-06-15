@@ -1,5 +1,6 @@
 using FestaInfantil.Compartilhado;
 using FestaInfantil.ModuloClientes;
+using FestaInfantil.ModuloTema;
 
 namespace FestaInfantil
 {
@@ -7,6 +8,8 @@ namespace FestaInfantil
     {
         private ControladorBase controlador;
         private RepositorioCliente repositorioCliente = new RepositorioCliente();
+        private RepositorioTema repositorioTema = new RepositorioTema(new List<Tema>());
+
         private static FormPrincipal formPrincipal;
         public FormPrincipal()
         {
@@ -17,20 +20,30 @@ namespace FestaInfantil
         {
             get
             {
+                if(formPrincipal == null)
+                    formPrincipal = new FormPrincipal();
+
                 return formPrincipal;
             }
         }
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorCliente(repositorioCliente);
-            ConfigurarTelaPrincipal();
+            ConfigurarTelaPrincipal(controlador);
         }
 
-        private void ConfigurarTelaPrincipal()
+        private void temasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorTema(repositorioTema);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void ConfigurarTelaPrincipal(ControladorBase controladorBase)
         {
             labelTitle.Text = controlador.ObterTipoCadastro();
             labelRodape.Text = controlador.ObterTipoCadastro();
-            ConfigurarToolTips(new ControladorCliente(repositorioCliente));
+            ConfigurarToolTips(controlador);
             ConfigurarListagem(controlador);
         }
 
@@ -81,5 +94,7 @@ namespace FestaInfantil
         {
             controlador.Excluir();
         }
+
+       
     }
 }

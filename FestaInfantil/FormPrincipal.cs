@@ -1,5 +1,6 @@
 using FestaInfantil.Compartilhado;
 using FestaInfantil.ModuloClientes;
+using FestaInfantil.ModuloFest;
 
 namespace FestaInfantil
 {
@@ -8,6 +9,7 @@ namespace FestaInfantil
         private ControladorBase controlador;
         private RepositorioCliente repositorioCliente = new RepositorioCliente();
         private static FormPrincipal formPrincipal;
+        private RepositorioFesta repositorioFesta = new RepositorioFesta();
         public FormPrincipal()
         {
             InitializeComponent();
@@ -80,6 +82,12 @@ namespace FestaInfantil
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             controlador.Excluir();
+        }
+
+        private void festaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorFesta(repositorioFesta, repositorioCliente);
+            ConfigurarTelaPrincipal();
         }
     }
 }

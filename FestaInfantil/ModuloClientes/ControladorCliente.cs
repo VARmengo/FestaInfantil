@@ -19,9 +19,9 @@ namespace FestaInfantil.ModuloClientes
 
         public override string ToolTipInserir {get { return "Inserir novo Cliente"; } }
 
-        public override string ToolTipEditar { get { return "Editar novo Cliente"; } }
+        public override string ToolTipEditar { get { return "Editar Cliente"; } }
 
-        public override string ToolTipExcluir { get { return "Excluir novo Cliente"; } }
+        public override string ToolTipExcluir { get { return "Excluir Cliente"; } }
 
         public override void Inserir()
         {

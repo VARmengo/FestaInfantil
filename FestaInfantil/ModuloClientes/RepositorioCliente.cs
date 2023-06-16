@@ -39,5 +39,10 @@ namespace FestaInfantil.ModuloClientes
         {
             clientes.Remove(clienteSelecionado);
         }
+
+        internal List<Cliente> SelecionarTodos()
+        {
+            return clientes.OrderByDescending(x => x.id).ToList();
+        }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using FestaInfantil.ModuloClientes;
-
 namespace FestaInfantil.ModuloFest
 {
     public class RepositorioFesta
     {
         List<Festa> festas = new List<Festa>();
         private static int contador;
+
         public void Inserir(Festa festa)
         {
             contador++;

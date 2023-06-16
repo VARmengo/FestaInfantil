@@ -32,7 +32,6 @@
             menuStrip1 = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
-            festaToolStripMenuItem = new ToolStripMenuItem();
             temasToolStripMenuItem = new ToolStripMenuItem();
             infoToolStripMenuItem = new ToolStripMenuItem();
             tspBtns = new ToolStrip();
@@ -45,7 +44,7 @@
             textoBaixo = new ToolStripStatusLabel();
             labelRodape = new ToolStripStatusLabel();
             panelRegistros = new Panel();
-            aluguelToolStripMenuItem = new ToolStripMenuItem();
+            festaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             tspBtns.SuspendLayout();
             statusBar.SuspendLayout();
@@ -72,20 +71,14 @@
             // clientesToolStripMenuItem
             // 
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(121, 22);
+            clientesToolStripMenuItem.Size = new Size(180, 22);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
-            // 
-            // festaToolStripMenuItem
-            // 
-            festaToolStripMenuItem.Name = "festaToolStripMenuItem";
-            festaToolStripMenuItem.Size = new Size(121, 22);
-            festaToolStripMenuItem.Text = "Festa";
             // 
             // temasToolStripMenuItem
             // 
             temasToolStripMenuItem.Name = "temasToolStripMenuItem";
-            temasToolStripMenuItem.Size = new Size(121, 22);
+            temasToolStripMenuItem.Size = new Size(180, 22);
             temasToolStripMenuItem.Text = "Temas";
             // 
             // infoToolStripMenuItem
@@ -177,12 +170,12 @@
             panelRegistros.Size = new Size(833, 367);
             panelRegistros.TabIndex = 4;
             // 
-            // aluguelToolStripMenuItem
+            // festaToolStripMenuItem
             // 
-            aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
-            aluguelToolStripMenuItem.Size = new Size(180, 22);
-            aluguelToolStripMenuItem.Text = "Aluguel";
-            aluguelToolStripMenuItem.Click += aluguelToolStripMenuItem_Click_1;
+            festaToolStripMenuItem.Name = "festaToolStripMenuItem";
+            festaToolStripMenuItem.Size = new Size(180, 22);
+            festaToolStripMenuItem.Text = "Festa";
+            festaToolStripMenuItem.Click += festaToolStripMenuItem_Click;
             // 
             // FormPrincipal
             // 
@@ -215,7 +208,6 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem cadastrosToolStripMenuItem;
-        private ToolStripMenuItem festaToolStripMenuItem;
         private ToolStripMenuItem temasToolStripMenuItem;
         private ToolStrip tspBtns;
         private ToolStripButton btnAdicionar;
@@ -229,6 +221,6 @@
         private ToolStripLabel labelTitle;
         private ToolStripMenuItem infoToolStripMenuItem;
         private ToolStripStatusLabel labelRodape;
-        private ToolStripMenuItem aluguelToolStripMenuItem;
+        private ToolStripMenuItem festaToolStripMenuItem;
     }
 }

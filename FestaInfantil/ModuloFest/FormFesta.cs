@@ -1,14 +1,5 @@
 ﻿using FestaInfantil.ModuloClientes;
 using FestaInfantil.ModuloFest;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FestaInfantil
 {
@@ -36,6 +27,7 @@ namespace FestaInfantil
         {
 
         }
+
         public Festa Festa
         {
             set
@@ -51,6 +43,7 @@ namespace FestaInfantil
                 return festa;
             }
         }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             FormPrincipal principal = FormPrincipal.Principal;
@@ -74,13 +67,11 @@ namespace FestaInfantil
                 return;
             }
 
-
             if (txtId.Text != "0")
                 cliente.id = Convert.ToInt32(txtId.Text);
 
             if (DialogResult == DialogResult.OK)
                 principal.AtualizarRodape("Cadastro de Festas");
-
         }
     }
 }

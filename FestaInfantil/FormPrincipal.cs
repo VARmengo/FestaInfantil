@@ -115,7 +115,7 @@ namespace FestaInfantil
         private void festaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorFesta(repositorioFesta, repositorioCliente);
-            ConfigurarTelaPrincipal();
+            ConfigurarTelaPrincipal(controlador);
         }
     }
 }

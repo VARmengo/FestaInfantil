@@ -3,7 +3,7 @@ using FestaInfantil.ModuloClientes;
 
 namespace FestaInfantil.ModuloFest
 {
-    public class Festa : EntidadeBase
+    public class Festa : EntidadeBase<Festa>
     {
         public int id;
         public string endereco;
@@ -19,6 +19,11 @@ namespace FestaInfantil.ModuloFest
             this.horaInicial = horaInicial;
             this.horaFinal = horaFinal;
             this.cliente = cliente;
+        }
+
+        public override void AtualizarInformacoes(Festa registroAtualizado)
+        {
+            throw new NotImplementedException();
         }
 
         public override string[] Validar()

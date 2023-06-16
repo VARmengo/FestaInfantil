@@ -1,7 +1,7 @@
 
 # Party Solutions
 
-Projeto esenvolvido pela equipe VARmengo para a Academia do Programador 2023 como resolução do Trabalho 03.
+Projeto esenvolvido pela equipe [@VARmengo](https://github.com/VARmengo/) para a Academia do Programador 2023 como resolução do Trabalho 03.
 
 ## Autores
 

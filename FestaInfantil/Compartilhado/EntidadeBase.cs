@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace FestaInfantil.Compartilhado
 {
-    public abstract class EntidadeBase
+    public abstract class EntidadeBase<TEntidade>
     {
         public int id;
 
@@ -14,6 +10,8 @@ namespace FestaInfantil.Compartilhado
         {
             
         }
+
+        public abstract void AtualizarInformacoes(TEntidade registroAtualizado);
 
         public abstract string[] Validar();
     }

@@ -33,6 +33,7 @@
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             temasToolStripMenuItem = new ToolStripMenuItem();
+            aluguelToolStripMenuItem = new ToolStripMenuItem();
             infoToolStripMenuItem = new ToolStripMenuItem();
             tspBtns = new ToolStrip();
             btnAdicionar = new ToolStripButton();
@@ -62,7 +63,7 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, festaToolStripMenuItem, temasToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, festaToolStripMenuItem, temasToolStripMenuItem, aluguelToolStripMenuItem });
             cadastrosToolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(78, 20);
@@ -80,6 +81,13 @@
             temasToolStripMenuItem.Name = "temasToolStripMenuItem";
             temasToolStripMenuItem.Size = new Size(180, 22);
             temasToolStripMenuItem.Text = "Temas";
+            temasToolStripMenuItem.Click += temasToolStripMenuItem_Click;
+            // 
+            // aluguelToolStripMenuItem
+            // 
+            aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
+            aluguelToolStripMenuItem.Size = new Size(121, 22);
+            aluguelToolStripMenuItem.Text = "Aluguel";
             // 
             // infoToolStripMenuItem
             // 
@@ -90,6 +98,7 @@
             // 
             // tspBtns
             // 
+            tspBtns.BackColor = Color.LightSteelBlue;
             tspBtns.GripMargin = new Padding(7);
             tspBtns.ImageScalingSize = new Size(24, 24);
             tspBtns.Items.AddRange(new ToolStripItem[] { btnAdicionar, btnEditar, btnExcluir, toolStripSeparator1, labelTitle });
@@ -104,7 +113,6 @@
             // 
             btnAdicionar.DisplayStyle = ToolStripItemDisplayStyle.Image;
             btnAdicionar.Image = Properties.Resources.add;
-            btnAdicionar.ImageScaling = ToolStripItemImageScaling.None;
             btnAdicionar.ImageTransparentColor = Color.Magenta;
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(28, 28);
@@ -138,9 +146,11 @@
             // 
             // labelTitle
             // 
+            labelTitle.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(74, 28);
-            labelTitle.Text = "Festa Infantil";
+            labelTitle.Size = new Size(101, 28);
+            labelTitle.Text = "PartySolutions";
+            labelTitle.Click += labelTitle_Click;
             // 
             // statusBar
             // 
@@ -163,6 +173,7 @@
             // 
             // panelRegistros
             // 
+            panelRegistros.BackColor = SystemColors.ScrollBar;
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Location = new Point(0, 55);
@@ -193,7 +204,7 @@
             MinimizeBox = false;
             Name = "FormPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Festa Infantil 0.1";
+            Text = "Party Solutions 1.0";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             tspBtns.ResumeLayout(false);
@@ -221,6 +232,7 @@
         private ToolStripLabel labelTitle;
         private ToolStripMenuItem infoToolStripMenuItem;
         private ToolStripStatusLabel labelRodape;
+        private ToolStripMenuItem aluguelToolStripMenuItem;
         private ToolStripMenuItem festaToolStripMenuItem;
     }
 }

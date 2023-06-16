@@ -76,7 +76,7 @@
             // cmbTema
             // 
             cmbTema.FormattingEnabled = true;
-            cmbTema.Location = new Point(66, 16);
+            cmbTema.Location = new Point(185, 50);
             cmbTema.Name = "cmbTema";
             cmbTema.Size = new Size(190, 23);
             cmbTema.TabIndex = 4;
@@ -86,7 +86,7 @@
             labelTema.AutoSize = true;
             labelTema.BackColor = Color.Transparent;
             labelTema.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTema.Location = new Point(10, 16);
+            labelTema.Location = new Point(185, 29);
             labelTema.Name = "labelTema";
             labelTema.Size = new Size(50, 18);
             labelTema.TabIndex = 7;
@@ -213,7 +213,7 @@
             // controlBotoes
             // 
             controlBotoes.BackColor = Color.Transparent;
-            controlBotoes.Location = new Point(113, 513);
+            controlBotoes.Location = new Point(326, 259);
             controlBotoes.Name = "controlBotoes";
             controlBotoes.Size = new Size(216, 91);
             controlBotoes.TabIndex = 11;
@@ -236,16 +236,16 @@
             panelTema.Controls.Add(labelitens);
             panelTema.Controls.Add(labelTema);
             panelTema.Controls.Add(cmbTema);
-            panelTema.Location = new Point(70, 270);
+            panelTema.Location = new Point(440, 12);
             panelTema.Name = "panelTema";
-            panelTema.Size = new Size(293, 218);
+            panelTema.Size = new Size(408, 241);
             panelTema.TabIndex = 14;
             // 
             // listItensTema
             // 
             listItensTema.FormattingEnabled = true;
             listItensTema.ItemHeight = 15;
-            listItensTema.Location = new Point(10, 59);
+            listItensTema.Location = new Point(19, 50);
             listItensTema.Name = "listItensTema";
             listItensTema.Size = new Size(142, 154);
             listItensTema.TabIndex = 9;
@@ -255,7 +255,7 @@
             labelitens.AutoSize = true;
             labelitens.BackColor = Color.Transparent;
             labelitens.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelitens.Location = new Point(10, 42);
+            labelitens.Location = new Point(19, 29);
             labelitens.Name = "labelitens";
             labelitens.Size = new Size(108, 18);
             labelitens.TabIndex = 8;
@@ -277,7 +277,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(433, 616);
+            ClientSize = new Size(857, 350);
             ControlBox = false;
             Controls.Add(label1);
             Controls.Add(titelFesta);

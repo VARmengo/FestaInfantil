@@ -1,5 +1,6 @@
 using FestaInfantil.Compartilhado;
 using FestaInfantil.ModuloClientes;
+using FestaInfantil.ModuloTema;
 using FestaInfantil.ModuloFest;
 
 namespace FestaInfantil
@@ -8,6 +9,8 @@ namespace FestaInfantil
     {
         private ControladorBase controlador;
         private RepositorioCliente repositorioCliente = new RepositorioCliente();
+        private RepositorioTema repositorioTema = new RepositorioTema(new List<Tema>());
+
         private static FormPrincipal formPrincipal;
         private RepositorioFesta repositorioFesta = new RepositorioFesta();
         public FormPrincipal()
@@ -19,20 +22,30 @@ namespace FestaInfantil
         {
             get
             {
+                if (formPrincipal == null)
+                    formPrincipal = new FormPrincipal();
+
                 return formPrincipal;
             }
         }
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorCliente(repositorioCliente);
-            ConfigurarTelaPrincipal();
+            ConfigurarTelaPrincipal(controlador);
         }
 
-        private void ConfigurarTelaPrincipal()
+        private void temasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorTema(repositorioTema);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void ConfigurarTelaPrincipal(ControladorBase controladorBase)
         {
             labelTitle.Text = controlador.ObterTipoCadastro();
             labelRodape.Text = controlador.ObterTipoCadastro();
-            ConfigurarToolTips(new ControladorCliente(repositorioCliente));
+            ConfigurarToolTips(controlador);
             ConfigurarListagem(controlador);
         }
 
@@ -76,12 +89,27 @@ namespace FestaInfantil
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (controlador == null)
+            {
+                MessageBox.Show("Escolha um cadastro primeiro!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             controlador.Editar();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            if (controlador == null)
+            {
+                MessageBox.Show("Escolha um cadastro primeiro!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             controlador.Excluir();
+        }
+
+        private void labelTitle_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void festaToolStripMenuItem_Click(object sender, EventArgs e)

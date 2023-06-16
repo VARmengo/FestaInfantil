@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTema));
             labelNome = new Label();
-            textBox1 = new TextBox();
+            txtTema = new TextBox();
             labelItens = new Label();
             controlBotoes = new Botoes();
             chbConfeitaria = new CheckBox();
@@ -40,7 +40,7 @@
             chbDescartaveis = new CheckBox();
             chbFantasias = new CheckBox();
             labelID = new Label();
-            textBox2 = new TextBox();
+            txtId = new TextBox();
             panel = new Panel();
             titleTemas = new Label();
             panel.SuspendLayout();
@@ -56,12 +56,12 @@
             labelNome.TabIndex = 0;
             labelNome.Text = "Tema:";
             // 
-            // textBox1
+            // txtTema
             // 
-            textBox1.Location = new Point(63, 47);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(209, 23);
-            textBox1.TabIndex = 0;
+            txtTema.Location = new Point(63, 47);
+            txtTema.Name = "txtTema";
+            txtTema.Size = new Size(209, 23);
+            txtTema.TabIndex = 0;
             // 
             // labelItens
             // 
@@ -157,24 +157,24 @@
             labelID.TabIndex = 10;
             labelID.Text = "ID:";
             // 
-            // textBox2
+            // txtId
             // 
-            textBox2.Location = new Point(63, 17);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(45, 23);
-            textBox2.TabIndex = 11;
-            textBox2.Text = "0";
-            textBox2.TextAlign = HorizontalAlignment.Center;
+            txtId.Location = new Point(63, 17);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(45, 23);
+            txtId.TabIndex = 11;
+            txtId.Text = "0";
+            txtId.TextAlign = HorizontalAlignment.Center;
             // 
             // panel
             // 
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.Controls.Add(labelID);
             panel.Controls.Add(chbFantasias);
-            panel.Controls.Add(textBox2);
+            panel.Controls.Add(txtId);
             panel.Controls.Add(chbDescartaveis);
-            panel.Controls.Add(textBox1);
+            panel.Controls.Add(txtTema);
             panel.Controls.Add(chbLembrancas);
             panel.Controls.Add(labelNome);
             panel.Controls.Add(chbDecoracao);
@@ -221,7 +221,7 @@
         #endregion
 
         private Label labelNome;
-        private TextBox textBox1;
+        private TextBox txtTema;
         private Label labelItens;
         private Botoes controlBotoes;
         private CheckBox chbConfeitaria;
@@ -231,7 +231,7 @@
         private CheckBox chbDescartaveis;
         private CheckBox chbFantasias;
         private Label labelID;
-        private TextBox textBox2;
+        private TextBox txtId;
         private Panel panel;
         private Label titleTemas;
     }

@@ -20,7 +20,7 @@ namespace FestaInfantil
         {
             get
             {
-                if(formPrincipal == null)
+                if (formPrincipal == null)
                     formPrincipal = new FormPrincipal();
 
                 return formPrincipal;
@@ -87,14 +87,27 @@ namespace FestaInfantil
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (controlador == null)
+            {
+                MessageBox.Show("Escolha um cadastro primeiro!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             controlador.Editar();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            if (controlador == null)
+            {
+                MessageBox.Show("Escolha um cadastro primeiro!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             controlador.Excluir();
         }
 
-       
+        private void labelTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

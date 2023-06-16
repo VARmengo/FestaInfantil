@@ -1,5 +1,6 @@
 ﻿
 using FestaInfantil.ModuloTema;
+using System.Windows.Forms;
 
 namespace FestaInfantil
 {
@@ -57,6 +58,24 @@ namespace FestaInfantil
 
             return tema;
         }
+
+        //public void GetItens()
+        //{
+        //    List<ItemTema> itens = new List<ItemTema>();
+
+        //    foreach(CheckBox checkbox in panel.Controls)
+        //    {
+        //        if (checkbox.Checked)
+        //        {
+
+        //            string nome = checkbox.Text;
+
+        //            ItemTema itemTema = new ItemTema(nome);
+
+        //            itens.Add(itemTema);
+        //        }
+        //    }
+        //}
 
         public void ConfigurarTela(Tema temaSelecionado, List<ItemTema> itensSelecionados)
         {

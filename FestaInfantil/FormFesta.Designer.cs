@@ -36,6 +36,8 @@
             labelData = new Label();
             dtpData = new DateTimePicker();
             panelFesta = new Panel();
+            labelcliente = new Label();
+            cmbCliente = new ComboBox();
             labelID = new Label();
             txtId = new TextBox();
             mkbHoraF = new MaskedTextBox();
@@ -44,12 +46,10 @@
             labelHoraI = new Label();
             controlBotoes = new Botoes();
             titelFesta = new Label();
-            labelcliente = new Label();
-            cmbCliente = new ComboBox();
             panelTema = new Panel();
-            label1 = new Label();
-            labelitens = new Label();
             listItensTema = new ListBox();
+            labelitens = new Label();
+            label1 = new Label();
             panelFesta.SuspendLayout();
             panelTema.SuspendLayout();
             SuspendLayout();
@@ -76,7 +76,7 @@
             // cmbTema
             // 
             cmbTema.FormattingEnabled = true;
-            cmbTema.Location = new Point(66, 16);
+            cmbTema.Location = new Point(185, 50);
             cmbTema.Name = "cmbTema";
             cmbTema.Size = new Size(190, 23);
             cmbTema.TabIndex = 4;
@@ -86,7 +86,7 @@
             labelTema.AutoSize = true;
             labelTema.BackColor = Color.Transparent;
             labelTema.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTema.Location = new Point(10, 16);
+            labelTema.Location = new Point(185, 29);
             labelTema.Name = "labelTema";
             labelTema.Size = new Size(50, 18);
             labelTema.TabIndex = 7;
@@ -130,6 +130,25 @@
             panelFesta.Name = "panelFesta";
             panelFesta.Size = new Size(408, 241);
             panelFesta.TabIndex = 10;
+            // 
+            // labelcliente
+            // 
+            labelcliente.AutoSize = true;
+            labelcliente.BackColor = Color.Transparent;
+            labelcliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelcliente.Location = new Point(15, 167);
+            labelcliente.Name = "labelcliente";
+            labelcliente.Size = new Size(61, 18);
+            labelcliente.TabIndex = 18;
+            labelcliente.Text = "Cliente:";
+            // 
+            // cmbCliente
+            // 
+            cmbCliente.FormattingEnabled = true;
+            cmbCliente.Location = new Point(82, 167);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(131, 23);
+            cmbCliente.TabIndex = 17;
             // 
             // labelID
             // 
@@ -194,7 +213,7 @@
             // controlBotoes
             // 
             controlBotoes.BackColor = Color.Transparent;
-            controlBotoes.Location = new Point(113, 513);
+            controlBotoes.Location = new Point(326, 259);
             controlBotoes.Name = "controlBotoes";
             controlBotoes.Size = new Size(216, 91);
             controlBotoes.TabIndex = 11;
@@ -210,25 +229,6 @@
             titelFesta.TabIndex = 13;
             titelFesta.Text = "Cadastro Festa";
             // 
-            // labelcliente
-            // 
-            labelcliente.AutoSize = true;
-            labelcliente.BackColor = Color.Transparent;
-            labelcliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelcliente.Location = new Point(15, 167);
-            labelcliente.Name = "labelcliente";
-            labelcliente.Size = new Size(61, 18);
-            labelcliente.TabIndex = 18;
-            labelcliente.Text = "Cliente:";
-            // 
-            // cmbCliente
-            // 
-            cmbCliente.FormattingEnabled = true;
-            cmbCliente.Location = new Point(82, 167);
-            cmbCliente.Name = "cmbCliente";
-            cmbCliente.Size = new Size(131, 23);
-            cmbCliente.TabIndex = 17;
-            // 
             // panelTema
             // 
             panelTema.BorderStyle = BorderStyle.FixedSingle;
@@ -236,48 +236,48 @@
             panelTema.Controls.Add(labelitens);
             panelTema.Controls.Add(labelTema);
             panelTema.Controls.Add(cmbTema);
-            panelTema.Location = new Point(70, 270);
+            panelTema.Location = new Point(440, 12);
             panelTema.Name = "panelTema";
-            panelTema.Size = new Size(293, 218);
+            panelTema.Size = new Size(408, 241);
             panelTema.TabIndex = 14;
             // 
-            // label1
+            // listItensTema
             // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.Control;
-            label1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(74, 256);
-            label1.Name = "label1";
-            label1.Size = new Size(117, 18);
-            label1.TabIndex = 15;
-            label1.Text = "Cadastro Festa";
-            label1.Click += label1_Click;
+            listItensTema.FormattingEnabled = true;
+            listItensTema.ItemHeight = 15;
+            listItensTema.Location = new Point(19, 50);
+            listItensTema.Name = "listItensTema";
+            listItensTema.Size = new Size(142, 154);
+            listItensTema.TabIndex = 9;
             // 
             // labelitens
             // 
             labelitens.AutoSize = true;
             labelitens.BackColor = Color.Transparent;
             labelitens.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelitens.Location = new Point(10, 42);
+            labelitens.Location = new Point(19, 29);
             labelitens.Name = "labelitens";
             labelitens.Size = new Size(108, 18);
             labelitens.TabIndex = 8;
             labelitens.Text = "Itens do Tema:";
             // 
-            // listItensTema
+            // label1
             // 
-            listItensTema.FormattingEnabled = true;
-            listItensTema.ItemHeight = 15;
-            listItensTema.Location = new Point(10, 59);
-            listItensTema.Name = "listItensTema";
-            listItensTema.Size = new Size(142, 154);
-            listItensTema.TabIndex = 9;
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.Control;
+            label1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(473, 8);
+            label1.Name = "label1";
+            label1.Size = new Size(117, 18);
+            label1.TabIndex = 15;
+            label1.Text = "Cadastro Festa";
+            label1.Click += label1_Click;
             // 
             // FormFesta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(433, 616);
+            ClientSize = new Size(857, 350);
             ControlBox = false;
             Controls.Add(label1);
             Controls.Add(titelFesta);

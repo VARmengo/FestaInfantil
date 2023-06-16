@@ -1,12 +1,12 @@
 ﻿using FestaInfantil.Compartilhado;
+using FestaInfantil.ModuloClientes;
 
 namespace FestaInfantil.ModuloTema
 {
     public class ControladorTema : ControladorBase
     {
         private RepositorioTema repositorioTema;
-        ListagemTemaControl listagemTema;
-
+        private TabelaTemaControl tabelaTemas;
         public ControladorTema(RepositorioTema repositorioTema)
         {
             this.repositorioTema = repositorioTema;
@@ -37,7 +37,7 @@ namespace FestaInfantil.ModuloTema
 
         public override void Editar()
         {
-            Tema temaSelecionado = listagemTema.ObterTemaSelecionado();
+            Tema temaSelecionado = ObterTemaSelecionado();
 
             if (temaSelecionado == null)
             {
@@ -69,7 +69,7 @@ namespace FestaInfantil.ModuloTema
 
         public override void Excluir()
         {
-            Tema temaSelecionado = listagemTema.ObterTemaSelecionado();
+            Tema temaSelecionado = ObterTemaSelecionado();
 
             if (temaSelecionado == null)
             {
@@ -97,14 +97,20 @@ namespace FestaInfantil.ModuloTema
 
         public override UserControl ObterListagem()
         {
-            if (listagemTema == null)
+            if (tabelaTemas == null)
             {
-                listagemTema = new ListagemTemaControl();
+                tabelaTemas = new TabelaTemaControl();
             }
 
             CarregarTemas();
 
-            return listagemTema;
+            return tabelaTemas;
+        }
+
+        private Tema ObterTemaSelecionado()
+        {
+            int id = tabelaTemas.ObterIdSelecionado();
+            return repositorioTema.SelecionarPorId(id);
         }
 
         public override string ObterTipoCadastro()
@@ -116,7 +122,7 @@ namespace FestaInfantil.ModuloTema
         {
             List<Tema> temas = repositorioTema.SelecionarTodos();
 
-            listagemTema.AtualizarRegistros(temas);
+            tabelaTemas.AtualizarRegistros(temas);
         }
     }
 }

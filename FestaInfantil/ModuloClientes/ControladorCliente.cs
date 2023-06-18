@@ -38,9 +38,9 @@ namespace FestaInfantil.ModuloClientes
         }
         public override void Editar()
         {
-            Cliente clienteSelecionado = ObterClienteSelecionado();
+            Cliente cliente = ObterClienteSelecionado();
 
-            if(clienteSelecionado == null)
+            if(cliente == null)
             {
                 MessageBox.Show($"Selecione um cliente primeiro!",
                     "Edicação de Clientes",
@@ -52,13 +52,12 @@ namespace FestaInfantil.ModuloClientes
 
             TelaClienteForm telaCliente = new TelaClienteForm();
 
-            telaCliente.ConfigurarTela(clienteSelecionado);
+            telaCliente.ConfigurarTela(cliente);
 
             DialogResult opcaoEscolhida = telaCliente.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
-            {
-                Cliente cliente = telaCliente.ObterCliente();
+            {                
                 repositorioCliente.Editar(cliente.id, cliente);
 
                 CarregarClientes();
@@ -68,9 +67,9 @@ namespace FestaInfantil.ModuloClientes
         }
         public override void Excluir()
         {
-            Cliente clienteSelecionado = ObterClienteSelecionado();
+            Cliente cliente = ObterClienteSelecionado();
 
-            if(clienteSelecionado == null)
+            if (cliente == null)
             {
                 MessageBox.Show($"Selecione um cliente primeiro!",
                    "Exclusão de Clientes",
@@ -80,11 +79,11 @@ namespace FestaInfantil.ModuloClientes
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o cliente: {clienteSelecionado.nome}?", "Exclusão de Contatos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o cliente: {cliente.nome}?", "Exclusão de Contatos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioCliente.Excluir(clienteSelecionado);
+                repositorioCliente.Excluir(cliente);
 
                 CarregarClientes();
 

@@ -6,7 +6,8 @@ namespace FestaInfantil.ModuloTema
     public class ControladorTema : ControladorBase
     {
         private RepositorioTema repositorioTema;
-        private TabelaTemaControl tabelaTemas;
+        public TabelaTemaControl tabelaTemas;
+
         public ControladorTema(RepositorioTema repositorioTema)
         {
             this.repositorioTema = repositorioTema;
@@ -19,7 +20,7 @@ namespace FestaInfantil.ModuloTema
 
         public override void Inserir()
         {
-            FormTema telaTema = new FormTema();
+            TelaTemaForm telaTema = new TelaTemaForm();
 
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
 
@@ -49,7 +50,7 @@ namespace FestaInfantil.ModuloTema
                 return;
             }
 
-            FormTema telaTema = new FormTema();
+            TelaTemaForm telaTema = new TelaTemaForm();
 
             telaTema.ConfigurarTela(temaSelecionado, temaSelecionado.itemsDeTema);
 

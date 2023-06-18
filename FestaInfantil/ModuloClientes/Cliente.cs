@@ -4,7 +4,6 @@ namespace FestaInfantil.ModuloClientes
 {
     public class Cliente : EntidadeBase<Cliente>
     {
-        public int id;
         public string nome;
         public string telefone;
         public string cpf;
@@ -18,7 +17,9 @@ namespace FestaInfantil.ModuloClientes
 
         public override void AtualizarInformacoes(Cliente registroAtualizado)
         {
-            throw new NotImplementedException();
+            this.nome = registroAtualizado.nome;
+            this.telefone = registroAtualizado.telefone;
+            this.cpf = registroAtualizado.cpf;
         }
 
         public override string ToString()
@@ -30,14 +31,20 @@ namespace FestaInfantil.ModuloClientes
         {
             List<string> erros = new List<string>();
 
-            if(string.IsNullOrEmpty(nome))
-                erros.Add("O campo 'nome' é obrigatório");     
-            
-            else if(string.IsNullOrEmpty(telefone))
-                erros.Add("O campo 'telefone' é obrigatório");    
-            
-            else if(string.IsNullOrEmpty(cpf))
-                erros.Add("O campo 'cpf' é obrigatório");
+            if (string.IsNullOrEmpty(nome))
+                erros.Add("O campo 'NOME' é obrigatório");
+
+            else if (string.IsNullOrEmpty(telefone))
+                erros.Add("O campo 'TELEFONE' é obrigatório");
+
+            else if (telefone.Length != 11)
+                erros.Add("O campo 'TELEFONE' precisa ter 11 dígitos");
+
+            else if (string.IsNullOrEmpty(cpf))
+                erros.Add("O campo 'CPF' é obrigatório");
+
+            else if (cpf.Length != 11)
+                erros.Add("O campo 'CPF' precisa ter 11 dígitos");
 
             return erros.ToArray();
         }

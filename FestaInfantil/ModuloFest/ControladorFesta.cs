@@ -46,19 +46,11 @@ namespace FestaInfantil.ModuloFest
             }
         }
 
-        //private void CarregarItensTema(Festa festa)
-        //{
-        //    foreach (ItemTema itemTema in festa.tema.itemsDeTema)
-        //    {
-        //        listItensTema.Items.Add(itemTema);
-        //    }
-        //}
-
         public override void Editar()
         {         
-            Festa festaSelecionada = ObterFestaSelecionada();
+            Festa festa = ObterFestaSelecionada();
 
-            if(festaSelecionada == null)
+            if(festa == null)
             {
                 MessageBox.Show($"Selecione uma festa primeiro!",
                     "Edicação de Festas",
@@ -72,13 +64,12 @@ namespace FestaInfantil.ModuloFest
             List<Tema> temas = repositorioTema.SelecionarTodos();
             TelaFestaForm telaFesta = new TelaFestaForm(clientes, temas);
 
-            telaFesta.ConfigurarTela(festaSelecionada);
+            telaFesta.ConfigurarTela(festa);
 
             DialogResult opcaoEscolhida = telaFesta.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Festa festa = telaFesta.ObterFesta();
                 repositorioFesta.Editar(festa.id, festa);
 
                 CarregarFesta();
@@ -89,19 +80,19 @@ namespace FestaInfantil.ModuloFest
 
         public override void Excluir()
         {
-            Festa festaSelecionada = ObterFestaSelecionada();
+            Festa festa = ObterFestaSelecionada();
 
-            if (festaSelecionada == null)
+            if (festa == null)
             {
                 MessageBox.Show("Escolha uma Festa Primeiro!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a festa?", "Exclusão de Festas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir esta festa?", "Exclusão de Festas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioFesta.Excluir(festaSelecionada);
+                repositorioFesta.Excluir(festa);
 
                 CarregarFesta();
 

@@ -18,6 +18,31 @@ namespace FestaInfantil
             controlBotoes.btnSalvar.DialogResult = DialogResult.OK;
         }
 
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            TelaPrincipalForm principal = TelaPrincipalForm.Principal;
+
+            Festa festa = ObterFesta();
+
+            string[] erros = festa.Validar();
+
+            if (erros.Length > 0)
+            {
+                TelaPrincipalForm.Principal.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+                return;
+            }
+
+            if (DialogResult == DialogResult.OK)
+                principal.AtualizarRodape("Cadastro de Temas");
+        }
+
         private void CarregarTemas(List<Tema> temas)
         {
             foreach (Tema tema in temas)
@@ -46,53 +71,12 @@ namespace FestaInfantil
                 festa.id = id;
 
             return festa;
-        }
-
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        }       
 
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        public Festa Festa
-        {
-            set
-            {
-                txtId.Text = value.id.ToString();
-                txtEndereco.Text = value.endereco;
-                txtData.Value = value.dataCriacao;
-            }
-            get
-            {
-                return festa;
-            }
-        }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            TelaPrincipalForm principal = TelaPrincipalForm.Principal;
-
-            Festa festa = ObterFesta();
-
-            string[] erros = festa.Validar();
-
-            if (erros.Length > 0)
-            {
-                TelaPrincipalForm.Principal.AtualizarRodape(erros[0]);
-
-                DialogResult = DialogResult.None;
-                return;
-            }
-
-            if (DialogResult == DialogResult.OK)
-                principal.AtualizarRodape("Cadastro de Temas");
-        }
-
-
+        }          
 
         private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -133,13 +117,11 @@ namespace FestaInfantil
         private void cmbTema_SelectedIndexChanged(object sender, EventArgs e)
         {
             listItensTema.Items.Clear();
-
-            // Obtém o tema selecionado na ComboBox
+                        
             Tema temaSelecionado = cmbTema.SelectedItem as Tema;
 
             if (temaSelecionado != null)
             {
-                // Itera sobre os itens do tema selecionado e os adiciona na ListBox
                 foreach (ItemTema itemTema in temaSelecionado.itemsDeTema)
                 {
                     listItensTema.Items.Add(itemTema);

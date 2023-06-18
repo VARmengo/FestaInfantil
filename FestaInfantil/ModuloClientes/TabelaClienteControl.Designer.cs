@@ -70,6 +70,7 @@
             grid.Location = new Point(0, 0);
             grid.MultiSelect = false;
             grid.Name = "grid";
+            grid.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Control;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);

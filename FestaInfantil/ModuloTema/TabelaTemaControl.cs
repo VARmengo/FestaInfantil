@@ -50,6 +50,11 @@ namespace FestaInfantil.ModuloTema
 
         public int ObterIdSelecionado()
         {
+            if (grid.Rows.Count == 0)
+            {
+                return 0;
+            }
+
             int id = Convert.ToInt32(grid.SelectedRows[0].Cells["id"].Value);
 
             return id;

@@ -2,6 +2,7 @@ using FestaInfantil.Compartilhado;
 using FestaInfantil.ModuloClientes;
 using FestaInfantil.ModuloTema;
 using FestaInfantil.ModuloFest;
+using FestaInfantil.ModuloAluguel;
 
 namespace FestaInfantil
 {
@@ -11,9 +12,10 @@ namespace FestaInfantil
         private RepositorioCliente repositorioCliente = new RepositorioCliente(new List<Cliente>());
         private RepositorioTema repositorioTema = new RepositorioTema(new List<Tema>());
         private RepositorioFesta repositorioFesta = new RepositorioFesta(new List<Festa>());
+        private RepositorioAluguel repositorioAluguel = new RepositorioAluguel(new List<Aluguel>());
 
         private static TelaPrincipalForm formPrincipal;
-        
+
         public TelaPrincipalForm()
         {
             InitializeComponent();
@@ -39,6 +41,18 @@ namespace FestaInfantil
         {
             controlador = new ControladorTema(repositorioTema);
 
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void festaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorFesta(repositorioFesta, repositorioCliente, repositorioTema);
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void aluguelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorAluguel(repositorioAluguel, repositorioCliente, repositorioTema, repositorioFesta);
             ConfigurarTelaPrincipal(controlador);
         }
 
@@ -113,10 +127,6 @@ namespace FestaInfantil
 
         }
 
-        private void festaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            controlador = new ControladorFesta(repositorioFesta, repositorioCliente, repositorioTema);
-            ConfigurarTelaPrincipal(controlador);
-        }
+        
     }
 }

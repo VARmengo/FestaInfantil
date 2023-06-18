@@ -32,6 +32,7 @@
             menuStrip1 = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
+            festaToolStripMenuItem = new ToolStripMenuItem();
             temasToolStripMenuItem = new ToolStripMenuItem();
             aluguelToolStripMenuItem = new ToolStripMenuItem();
             infoToolStripMenuItem = new ToolStripMenuItem();
@@ -45,7 +46,6 @@
             textoBaixo = new ToolStripStatusLabel();
             labelRodape = new ToolStripStatusLabel();
             panelRegistros = new Panel();
-            festaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             tspBtns.SuspendLayout();
             statusBar.SuspendLayout();
@@ -76,6 +76,13 @@
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
+            // festaToolStripMenuItem
+            // 
+            festaToolStripMenuItem.Name = "festaToolStripMenuItem";
+            festaToolStripMenuItem.Size = new Size(180, 22);
+            festaToolStripMenuItem.Text = "Festa";
+            festaToolStripMenuItem.Click += festaToolStripMenuItem_Click;
+            // 
             // temasToolStripMenuItem
             // 
             temasToolStripMenuItem.Name = "temasToolStripMenuItem";
@@ -86,8 +93,9 @@
             // aluguelToolStripMenuItem
             // 
             aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
-            aluguelToolStripMenuItem.Size = new Size(121, 22);
+            aluguelToolStripMenuItem.Size = new Size(180, 22);
             aluguelToolStripMenuItem.Text = "Aluguel";
+            aluguelToolStripMenuItem.Click += aluguelToolStripMenuItem_Click;
             // 
             // infoToolStripMenuItem
             // 
@@ -146,9 +154,9 @@
             // 
             // labelTitle
             // 
-            labelTitle.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(101, 28);
+            labelTitle.Size = new Size(125, 28);
             labelTitle.Text = "PartySolutions";
             labelTitle.Click += labelTitle_Click;
             // 
@@ -181,14 +189,7 @@
             panelRegistros.Size = new Size(833, 367);
             panelRegistros.TabIndex = 4;
             // 
-            // festaToolStripMenuItem
-            // 
-            festaToolStripMenuItem.Name = "festaToolStripMenuItem";
-            festaToolStripMenuItem.Size = new Size(180, 22);
-            festaToolStripMenuItem.Text = "Festa";
-            festaToolStripMenuItem.Click += festaToolStripMenuItem_Click;
-            // 
-            // FormPrincipal
+            // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -202,7 +203,7 @@
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FormPrincipal";
+            Name = "TelaPrincipalForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Party Solutions 1.0";
             menuStrip1.ResumeLayout(false);

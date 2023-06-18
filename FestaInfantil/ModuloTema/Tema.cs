@@ -22,7 +22,7 @@ namespace FestaInfantil.ModuloTema
 
         public override string ToString()
         {
-            return "Id: " + id + " Tema: " + tema;
+            return tema;
         }
 
         public override string[] Validar()

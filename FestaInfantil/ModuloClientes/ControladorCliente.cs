@@ -38,9 +38,9 @@ namespace FestaInfantil.ModuloClientes
         }
         public override void Editar()
         {
-            Cliente cliente = ObterClienteSelecionado();
+            Cliente clienteSelecionado = ObterClienteSelecionado();
 
-            if(cliente == null)
+            if(clienteSelecionado == null)
             {
                 MessageBox.Show($"Selecione um cliente primeiro!",
                     "Edicação de Clientes",
@@ -51,13 +51,13 @@ namespace FestaInfantil.ModuloClientes
             }
 
             TelaClienteForm telaCliente = new TelaClienteForm();
-
-            telaCliente.ConfigurarTela(cliente);
+            telaCliente.ConfigurarTela(clienteSelecionado);
 
             DialogResult opcaoEscolhida = telaCliente.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
-            {                
+            {
+                Cliente cliente = telaCliente.ObterCliente();
                 repositorioCliente.Editar(cliente.id, cliente);
 
                 CarregarClientes();

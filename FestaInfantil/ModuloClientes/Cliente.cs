@@ -24,7 +24,7 @@ namespace FestaInfantil.ModuloClientes
 
         public override string ToString()
         {
-            return "Id: " + id + " Nome: " + nome + " Telefone: " + telefone + " CPF: " + cpf;
+            return nome;
         }
 
         public override string[] Validar()

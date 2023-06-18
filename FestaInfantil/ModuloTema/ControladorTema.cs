@@ -38,9 +38,9 @@ namespace FestaInfantil.ModuloTema
 
         public override void Editar()
         {
-            Tema tema = ObterTemaSelecionado();
+            Tema temaSelecionado = ObterTemaSelecionado();
 
-            if (tema == null)
+            if (temaSelecionado == null)
             {
                 MessageBox.Show($"Selecione um tema primeiro!",
                     "Edição de Temas",
@@ -51,13 +51,13 @@ namespace FestaInfantil.ModuloTema
 
             TelaTemaForm telaTema = new TelaTemaForm();
 
-            telaTema.ConfigurarTela(tema, tema.itemsDeTema);
+            telaTema.ConfigurarTela(temaSelecionado, temaSelecionado.itemsDeTema);
 
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                tema.itemsDeTema.Clear();
+                Tema tema = telaTema.ObterTema();
                 telaTema.ConfigurarCheckBoxSelecionados(tema.itemsDeTema);
 
                 repositorioTema.Editar(tema.id, tema);

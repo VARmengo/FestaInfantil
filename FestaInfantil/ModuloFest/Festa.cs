@@ -22,6 +22,10 @@ namespace FestaInfantil.ModuloFest
             this.cliente = cliente;
             this.tema = tema;
         }
+        public override string ToString()
+        {
+            return endereco;
+        }
 
         public override void AtualizarInformacoes(Festa registroAtualizado)
         {

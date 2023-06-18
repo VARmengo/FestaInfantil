@@ -1,5 +1,6 @@
 ﻿using FestaInfantil.Compartilhado;
 using FestaInfantil.ModuloClientes;
+using FestaInfantil.ModuloTema;
 
 namespace FestaInfantil.ModuloFest
 {
@@ -8,12 +9,13 @@ namespace FestaInfantil.ModuloFest
         private RepositorioFesta repositorioFesta;
         private TabelaFestaControl tabelaFesta;
         private RepositorioCliente repositorioCliente;
-
-      
-        public ControladorFesta(RepositorioFesta repositorioFesta, RepositorioCliente repositorioCliente)
+        private RepositorioTema repositorioTema;
+              
+        public ControladorFesta(RepositorioFesta repositorioFesta, RepositorioCliente repositorioCliente, RepositorioTema repositorioTema)
         {
             this.repositorioFesta = repositorioFesta;
             this.repositorioCliente = repositorioCliente;
+            this.repositorioTema = repositorioTema;
         }
         public override string ToolTipInserir { get { return "Inserir nova Festa"; } }
 
@@ -24,39 +26,64 @@ namespace FestaInfantil.ModuloFest
         public override void Inserir()
         {
             List<Cliente> clientes = repositorioCliente.SelecionarTodos();
+            List<Tema> temas = repositorioTema.SelecionarTodos();
 
-            FormFesta formFesta = new FormFesta(clientes);
+            TelaFestaForm telaFesta = new TelaFestaForm(clientes, temas);
 
-            DialogResult opcaoEscolhida = formFesta.ShowDialog();
+            DialogResult opcaoEscolhida = telaFesta.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Festa festa = formFesta.Festa;
+                Festa festa = telaFesta.ObterFesta();
+
+                
+
                 repositorioFesta.Inserir(festa);
 
                 CarregarFesta();
 
-                MessageBox.Show("Informações Gravadas com Sucesso!");
+                MessageBox.Show("Festa cadastrada com Sucesso!");
             }
         }
+
+        //private void CarregarItensTema(Festa festa)
+        //{
+        //    foreach (ItemTema itemTema in festa.tema.itemsDeTema)
+        //    {
+        //        listItensTema.Items.Add(itemTema);
+        //    }
+        //}
+
         public override void Editar()
-        {
+        {         
+            Festa festaSelecionada = ObterFestaSelecionada();
+
+            if(festaSelecionada == null)
+            {
+                MessageBox.Show($"Selecione uma festa primeiro!",
+                    "Edicação de Festas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
             List<Cliente> clientes = repositorioCliente.SelecionarTodos();
+            List<Tema> temas = repositorioTema.SelecionarTodos();
+            TelaFestaForm telaFesta = new TelaFestaForm(clientes, temas);
 
-            FormFesta formFestas = new FormFesta(clientes);
+            telaFesta.ConfigurarTela(festaSelecionada);
 
-            formFestas.Festa = ObterFestaSelecionada();
-
-            DialogResult opcaoEscolhida = formFestas.ShowDialog();
+            DialogResult opcaoEscolhida = telaFesta.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Festa festas = formFestas.Festa;
-                repositorioFesta.Editar(festas);
+                Festa festa = telaFesta.ObterFesta();
+                repositorioFesta.Editar(festa.id, festa);
 
                 CarregarFesta();
 
-                MessageBox.Show("Informações Editadas com Sucesso!");
+                MessageBox.Show("Festa editada com Sucesso!");
             }
         }
 
@@ -99,7 +126,8 @@ namespace FestaInfantil.ModuloFest
 
         private void CarregarFesta()
         {
-            List<Festa> festas = repositorioFesta.GetFestas();
+            List<Festa> festas = repositorioFesta.SelecionarTodos();
+
             tabelaFesta.AtualizarRegistros(festas);
         }
 

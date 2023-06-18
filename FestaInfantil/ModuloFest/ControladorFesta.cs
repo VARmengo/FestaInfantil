@@ -36,8 +36,6 @@ namespace FestaInfantil.ModuloFest
             {
                 Festa festa = telaFesta.ObterFesta();
 
-                
-
                 repositorioFesta.Inserir(festa);
 
                 CarregarFesta();
@@ -48,9 +46,9 @@ namespace FestaInfantil.ModuloFest
 
         public override void Editar()
         {         
-            Festa festa = ObterFestaSelecionada();
+            Festa festaSelecionada = ObterFestaSelecionada();
 
-            if(festa == null)
+            if(festaSelecionada == null)
             {
                 MessageBox.Show($"Selecione uma festa primeiro!",
                     "Edicação de Festas",
@@ -64,12 +62,14 @@ namespace FestaInfantil.ModuloFest
             List<Tema> temas = repositorioTema.SelecionarTodos();
             TelaFestaForm telaFesta = new TelaFestaForm(clientes, temas);
 
-            telaFesta.ConfigurarTela(festa);
+            telaFesta.ConfigurarTela(festaSelecionada);
 
             DialogResult opcaoEscolhida = telaFesta.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                Festa festa = telaFesta.ObterFesta();
+
                 repositorioFesta.Editar(festa.id, festa);
 
                 CarregarFesta();

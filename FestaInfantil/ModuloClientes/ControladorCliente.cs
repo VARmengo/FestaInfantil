@@ -1,4 +1,6 @@
 ﻿using FestaInfantil.Compartilhado;
+using FestaInfantil.ModuloTema;
+
 namespace FestaInfantil.ModuloClientes
 {
     public class ControladorCliente : ControladorBase
@@ -19,36 +21,49 @@ namespace FestaInfantil.ModuloClientes
 
         public override void Inserir()
         {
-            FormClientes formClientes = new FormClientes();
+            TelaClienteForm telaCliente = new TelaClienteForm();
 
-            DialogResult opcaoEscolhida = formClientes.ShowDialog();
+            DialogResult opcaoEscolhida = telaCliente.ShowDialog();
 
             if(opcaoEscolhida == DialogResult.OK)
             {
-                Cliente cliente = formClientes.Cliente;
+                Cliente cliente = telaCliente.ObterCliente();
+
                 repositorioCliente.Inserir(cliente);
 
                 CarregarClientes();
 
-                MessageBox.Show("Informações Gravadas com Sucesso!");
+                MessageBox.Show("Cliente cadastrado com Sucesso!");
             }
         }
         public override void Editar()
         {
-            FormClientes formClientes = new FormClientes();
+            Cliente clienteSelecionado = ObterClienteSelecionado();
 
-            formClientes.Cliente = ObterClienteSelecionado();
+            if(clienteSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um cliente primeiro!",
+                    "Edicação de Clientes",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
 
-            DialogResult opcaoEscolhida = formClientes.ShowDialog();
+                return;
+            }
+
+            TelaClienteForm telaCliente = new TelaClienteForm();
+
+            telaCliente.ConfigurarTela(clienteSelecionado);
+
+            DialogResult opcaoEscolhida = telaCliente.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Cliente cliente = formClientes.Cliente;
-                repositorioCliente.Editar(cliente);
+                Cliente cliente = telaCliente.ObterCliente();
+                repositorioCliente.Editar(cliente.id, cliente);
 
                 CarregarClientes();
 
-                MessageBox.Show("Informações Editadas com Sucesso!");
+                MessageBox.Show("Cliente editado com Sucesso!");
             }
         }
         public override void Excluir()
@@ -57,7 +72,11 @@ namespace FestaInfantil.ModuloClientes
 
             if(clienteSelecionado == null)
             {
-                MessageBox.Show("Escolha um Cliente Primeiro!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Selecione um cliente primeiro!",
+                   "Exclusão de Clientes",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Exclamation);
+
                 return;
             }
 
@@ -69,7 +88,7 @@ namespace FestaInfantil.ModuloClientes
 
                 CarregarClientes();
 
-                MessageBox.Show("Cliente Excluído com Sucesso!");
+                MessageBox.Show("Cliente excluído com Sucesso!");
             }
         }
 
@@ -81,7 +100,7 @@ namespace FestaInfantil.ModuloClientes
 
         private void CarregarClientes()
         {
-            List<Cliente> clientes = repositorioCliente.GetClientes();
+            List<Cliente> clientes = repositorioCliente.SelecionarTodos();
             tabelaClientes.AtualizarRegistros(clientes);
         }
 

@@ -5,25 +5,26 @@ using FestaInfantil.ModuloFest;
 
 namespace FestaInfantil
 {
-    public partial class FormPrincipal : Form
+    public partial class TelaPrincipalForm : Form
     {
         private ControladorBase controlador;
-        private RepositorioCliente repositorioCliente = new RepositorioCliente();
+        private RepositorioCliente repositorioCliente = new RepositorioCliente(new List<Cliente>());
         private RepositorioTema repositorioTema = new RepositorioTema(new List<Tema>());
+        private RepositorioFesta repositorioFesta = new RepositorioFesta(new List<Festa>());
 
-        private static FormPrincipal formPrincipal;
-        private RepositorioFesta repositorioFesta = new RepositorioFesta();
-        public FormPrincipal()
+        private static TelaPrincipalForm formPrincipal;
+        
+        public TelaPrincipalForm()
         {
             InitializeComponent();
             formPrincipal = this;
         }
-        public static FormPrincipal Principal
+        public static TelaPrincipalForm Principal
         {
             get
             {
                 if (formPrincipal == null)
-                    formPrincipal = new FormPrincipal();
+                    formPrincipal = new TelaPrincipalForm();
 
                 return formPrincipal;
             }
@@ -82,7 +83,7 @@ namespace FestaInfantil
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormInfo formInfo = new FormInfo();
+            TelaInfoForm formInfo = new TelaInfoForm();
 
             formInfo.ShowDialog();
         }
@@ -114,7 +115,7 @@ namespace FestaInfantil
 
         private void festaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorFesta(repositorioFesta, repositorioCliente);
+            controlador = new ControladorFesta(repositorioFesta, repositorioCliente, repositorioTema);
             ConfigurarTelaPrincipal(controlador);
         }
     }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace FestaInfantil.Compartilhado
 {
@@ -56,7 +52,7 @@ namespace FestaInfantil.Compartilhado
 
         public virtual List<TEntidade> SelecionarTodos()
         {
-            return listaRegistros.OrderByDescending(x => x.id).ToList();
+            return listaRegistros.OrderBy(x => x.id).ToList();
         }
     }
 }

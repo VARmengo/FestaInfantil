@@ -6,7 +6,8 @@ namespace FestaInfantil.ModuloTema
     public class ControladorTema : ControladorBase
     {
         private RepositorioTema repositorioTema;
-        private TabelaTemaControl tabelaTemas;
+        public TabelaTemaControl tabelaTemas;
+
         public ControladorTema(RepositorioTema repositorioTema)
         {
             this.repositorioTema = repositorioTema;
@@ -19,7 +20,7 @@ namespace FestaInfantil.ModuloTema
 
         public override void Inserir()
         {
-            FormTema telaTema = new FormTema();
+            TelaTemaForm telaTema = new TelaTemaForm();
 
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
 
@@ -37,27 +38,25 @@ namespace FestaInfantil.ModuloTema
 
         public override void Editar()
         {
-            Tema temaSelecionado = ObterTemaSelecionado();
+            Tema tema = ObterTemaSelecionado();
 
-            if (temaSelecionado == null)
+            if (tema == null)
             {
                 MessageBox.Show($"Selecione um tema primeiro!",
-                    "Edicação de Temas",
+                    "Edição de Temas",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
-
                 return;
             }
 
-            FormTema telaTema = new FormTema();
+            TelaTemaForm telaTema = new TelaTemaForm();
 
-            telaTema.ConfigurarTela(temaSelecionado, temaSelecionado.itemsDeTema);
+            telaTema.ConfigurarTela(tema, tema.itemsDeTema);
 
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Tema tema = telaTema.ObterTema();
                 tema.itemsDeTema.Clear();
                 telaTema.ConfigurarCheckBoxSelecionados(tema.itemsDeTema);
 

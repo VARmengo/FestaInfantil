@@ -1,12 +1,10 @@
-﻿
-using FestaInfantil.ModuloTema;
-using System.Windows.Forms;
+﻿using FestaInfantil.ModuloTema;
 
 namespace FestaInfantil
 {
-    public partial class FormTema : Form
+    public partial class TelaTemaForm : Form
     {
-        public FormTema()
+        public TelaTemaForm()
         {
             InitializeComponent();
             controlBotoes.btnSair.Click += btnSair_Click;
@@ -16,7 +14,7 @@ namespace FestaInfantil
 
         private void btnSalvar_Click(object? sender, EventArgs e)
         {
-            FormPrincipal principal = FormPrincipal.Principal;
+            TelaPrincipalForm principal = TelaPrincipalForm.Principal;
 
             Tema tema = ObterTema();
 
@@ -26,7 +24,7 @@ namespace FestaInfantil
 
             if (erros.Length > 0)
             {
-                FormPrincipal.Principal.AtualizarRodape(erros[0]);
+                TelaPrincipalForm.Principal.AtualizarRodape(erros[0]);
 
                 DialogResult = DialogResult.None;
                 return;
@@ -59,24 +57,6 @@ namespace FestaInfantil
             return tema;
         }
 
-        //public void GetItens()
-        //{
-        //    List<ItemTema> itens = new List<ItemTema>();
-
-        //    foreach(CheckBox checkbox in panel.Controls)
-        //    {
-        //        if (checkbox.Checked)
-        //        {
-
-        //            string nome = checkbox.Text;
-
-        //            ItemTema itemTema = new ItemTema(nome);
-
-        //            itens.Add(itemTema);
-        //        }
-        //    }
-        //}
-
         public void ConfigurarTela(Tema temaSelecionado, List<ItemTema> itensSelecionados)
         {
             txtId.Text = temaSelecionado.id.ToString();
@@ -92,7 +72,7 @@ namespace FestaInfantil
 
         public void ConfigurarCheckBoxSelecionados(List<ItemTema> items)
         {
-            CheckBox[] checkBoxes = 
+            CheckBox[] checkBoxes =
             {
                 chbConfeitaria,
                 chbSalgadinhos,

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FestaInfantil
 {
-    public partial class FormInfo : Form
+    public partial class TelaInfoForm : Form
     {
-        public FormInfo()
+        public TelaInfoForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace FestaInfantil
 {
-    partial class FormTema
+    partial class TelaTemaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTema));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaTemaForm));
             labelNome = new Label();
             txtTema = new TextBox();
             labelItens = new Label();
@@ -209,7 +209,7 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormTema";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Temas";
             Load += FormTema_Load;
             panel.ResumeLayout(false);

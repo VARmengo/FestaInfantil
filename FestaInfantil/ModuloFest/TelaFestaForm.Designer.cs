@@ -1,6 +1,6 @@
 ﻿namespace FestaInfantil
 {
-    partial class FormFesta
+    partial class TelaFestaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFesta));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaFestaForm));
             labelEndereço = new Label();
             txtEndereco = new TextBox();
             cmbTema = new ComboBox();
             labelTema = new Label();
             labelData = new Label();
-            dtpData = new DateTimePicker();
+            txtData = new DateTimePicker();
             panelFesta = new Panel();
+            txtHoraFinal = new DateTimePicker();
+            txtHoraInicial = new DateTimePicker();
             labelcliente = new Label();
             cmbCliente = new ComboBox();
             labelID = new Label();
             txtId = new TextBox();
-            mkbHoraF = new MaskedTextBox();
-            mtbHoraI = new MaskedTextBox();
             labelHoraF = new Label();
             labelHoraI = new Label();
             controlBotoes = new Botoes();
@@ -49,7 +49,6 @@
             panelTema = new Panel();
             listItensTema = new ListBox();
             labelitens = new Label();
-            label1 = new Label();
             panelFesta.SuspendLayout();
             panelTema.SuspendLayout();
             SuspendLayout();
@@ -59,7 +58,7 @@
             labelEndereço.AutoSize = true;
             labelEndereço.BackColor = Color.Transparent;
             labelEndereço.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelEndereço.Location = new Point(14, 50);
+            labelEndereço.Location = new Point(14, 178);
             labelEndereço.Name = "labelEndereço";
             labelEndereço.Size = new Size(80, 18);
             labelEndereço.TabIndex = 5;
@@ -68,25 +67,26 @@
             // txtEndereco
             // 
             txtEndereco.BackColor = Color.White;
-            txtEndereco.Location = new Point(100, 50);
+            txtEndereco.Location = new Point(100, 178);
             txtEndereco.Name = "txtEndereco";
-            txtEndereco.Size = new Size(292, 23);
+            txtEndereco.Size = new Size(220, 23);
             txtEndereco.TabIndex = 3;
             // 
             // cmbTema
             // 
             cmbTema.FormattingEnabled = true;
-            cmbTema.Location = new Point(185, 50);
+            cmbTema.Location = new Point(33, 48);
             cmbTema.Name = "cmbTema";
             cmbTema.Size = new Size(190, 23);
             cmbTema.TabIndex = 4;
+            cmbTema.SelectedIndexChanged += cmbTema_SelectedIndexChanged;
             // 
             // labelTema
             // 
             labelTema.AutoSize = true;
             labelTema.BackColor = Color.Transparent;
             labelTema.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTema.Location = new Point(185, 29);
+            labelTema.Location = new Point(33, 23);
             labelTema.Name = "labelTema";
             labelTema.Size = new Size(50, 18);
             labelTema.TabIndex = 7;
@@ -97,46 +97,67 @@
             labelData.AutoSize = true;
             labelData.BackColor = Color.Transparent;
             labelData.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelData.Location = new Point(14, 86);
+            labelData.Location = new Point(48, 85);
             labelData.Name = "labelData";
             labelData.Size = new Size(46, 18);
             labelData.TabIndex = 8;
             labelData.Text = "Data:";
             // 
-            // dtpData
+            // txtData
             // 
-            dtpData.Format = DateTimePickerFormat.Short;
-            dtpData.Location = new Point(66, 86);
-            dtpData.Name = "dtpData";
-            dtpData.Size = new Size(97, 23);
-            dtpData.TabIndex = 5;
+            txtData.Format = DateTimePickerFormat.Short;
+            txtData.Location = new Point(100, 85);
+            txtData.Name = "txtData";
+            txtData.Size = new Size(97, 23);
+            txtData.TabIndex = 5;
             // 
             // panelFesta
             // 
             panelFesta.BorderStyle = BorderStyle.FixedSingle;
+            panelFesta.Controls.Add(txtHoraFinal);
+            panelFesta.Controls.Add(txtHoraInicial);
             panelFesta.Controls.Add(labelcliente);
             panelFesta.Controls.Add(cmbCliente);
             panelFesta.Controls.Add(labelID);
             panelFesta.Controls.Add(txtId);
-            panelFesta.Controls.Add(mkbHoraF);
-            panelFesta.Controls.Add(mtbHoraI);
-            panelFesta.Controls.Add(labelHoraF);
-            panelFesta.Controls.Add(labelEndereço);
-            panelFesta.Controls.Add(labelHoraI);
             panelFesta.Controls.Add(txtEndereco);
-            panelFesta.Controls.Add(dtpData);
+            panelFesta.Controls.Add(labelEndereço);
+            panelFesta.Controls.Add(labelHoraF);
+            panelFesta.Controls.Add(labelHoraI);
+            panelFesta.Controls.Add(txtData);
             panelFesta.Controls.Add(labelData);
             panelFesta.Location = new Point(12, 12);
             panelFesta.Name = "panelFesta";
             panelFesta.Size = new Size(408, 241);
             panelFesta.TabIndex = 10;
+            panelFesta.Paint += panelFesta_Paint;
+            // 
+            // txtHoraFinal
+            // 
+            txtHoraFinal.CustomFormat = "HH:mm";
+            txtHoraFinal.Format = DateTimePickerFormat.Custom;
+            txtHoraFinal.Location = new Point(100, 147);
+            txtHoraFinal.Name = "txtHoraFinal";
+            txtHoraFinal.ShowUpDown = true;
+            txtHoraFinal.Size = new Size(97, 23);
+            txtHoraFinal.TabIndex = 22;
+            // 
+            // txtHoraInicial
+            // 
+            txtHoraInicial.CustomFormat = "HH:mm";
+            txtHoraInicial.Format = DateTimePickerFormat.Custom;
+            txtHoraInicial.Location = new Point(100, 116);
+            txtHoraInicial.Name = "txtHoraInicial";
+            txtHoraInicial.ShowUpDown = true;
+            txtHoraInicial.Size = new Size(97, 23);
+            txtHoraInicial.TabIndex = 21;
             // 
             // labelcliente
             // 
             labelcliente.AutoSize = true;
             labelcliente.BackColor = Color.Transparent;
             labelcliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelcliente.Location = new Point(15, 167);
+            labelcliente.Location = new Point(33, 54);
             labelcliente.Name = "labelcliente";
             labelcliente.Size = new Size(61, 18);
             labelcliente.TabIndex = 18;
@@ -145,17 +166,18 @@
             // cmbCliente
             // 
             cmbCliente.FormattingEnabled = true;
-            cmbCliente.Location = new Point(82, 167);
+            cmbCliente.Location = new Point(100, 54);
             cmbCliente.Name = "cmbCliente";
             cmbCliente.Size = new Size(131, 23);
             cmbCliente.TabIndex = 17;
+            cmbCliente.SelectedIndexChanged += cmbCliente_SelectedIndexChanged;
             // 
             // labelID
             // 
             labelID.AutoSize = true;
             labelID.BackColor = Color.Transparent;
             labelID.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelID.Location = new Point(15, 23);
+            labelID.Location = new Point(67, 23);
             labelID.Name = "labelID";
             labelID.Size = new Size(27, 18);
             labelID.TabIndex = 16;
@@ -164,7 +186,7 @@
             // txtId
             // 
             txtId.BackColor = Color.White;
-            txtId.Location = new Point(48, 23);
+            txtId.Location = new Point(100, 23);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(33, 23);
@@ -172,28 +194,12 @@
             txtId.Text = "0";
             txtId.TextAlign = HorizontalAlignment.Center;
             // 
-            // mkbHoraF
-            // 
-            mkbHoraF.Location = new Point(97, 138);
-            mkbHoraF.Mask = "00:00";
-            mkbHoraF.Name = "mkbHoraF";
-            mkbHoraF.Size = new Size(38, 23);
-            mkbHoraF.TabIndex = 14;
-            // 
-            // mtbHoraI
-            // 
-            mtbHoraI.Location = new Point(97, 112);
-            mtbHoraI.Mask = "00:00";
-            mtbHoraI.Name = "mtbHoraI";
-            mtbHoraI.Size = new Size(38, 23);
-            mtbHoraI.TabIndex = 13;
-            // 
             // labelHoraF
             // 
             labelHoraF.AutoSize = true;
             labelHoraF.BackColor = Color.Transparent;
             labelHoraF.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelHoraF.Location = new Point(15, 138);
+            labelHoraF.Location = new Point(6, 147);
             labelHoraF.Name = "labelHoraF";
             labelHoraF.Size = new Size(88, 18);
             labelHoraF.TabIndex = 12;
@@ -204,7 +210,7 @@
             labelHoraI.AutoSize = true;
             labelHoraI.BackColor = Color.Transparent;
             labelHoraI.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelHoraI.Location = new Point(14, 112);
+            labelHoraI.Location = new Point(5, 116);
             labelHoraI.Name = "labelHoraI";
             labelHoraI.Size = new Size(89, 18);
             labelHoraI.TabIndex = 10;
@@ -213,7 +219,7 @@
             // controlBotoes
             // 
             controlBotoes.BackColor = Color.Transparent;
-            controlBotoes.Location = new Point(326, 259);
+            controlBotoes.Location = new Point(245, 259);
             controlBotoes.Name = "controlBotoes";
             controlBotoes.Size = new Size(216, 91);
             controlBotoes.TabIndex = 11;
@@ -238,16 +244,16 @@
             panelTema.Controls.Add(cmbTema);
             panelTema.Location = new Point(440, 12);
             panelTema.Name = "panelTema";
-            panelTema.Size = new Size(408, 241);
+            panelTema.Size = new Size(254, 241);
             panelTema.TabIndex = 14;
             // 
             // listItensTema
             // 
             listItensTema.FormattingEnabled = true;
             listItensTema.ItemHeight = 15;
-            listItensTema.Location = new Point(19, 50);
+            listItensTema.Location = new Point(33, 103);
             listItensTema.Name = "listItensTema";
-            listItensTema.Size = new Size(142, 154);
+            listItensTema.Size = new Size(142, 124);
             listItensTema.TabIndex = 9;
             // 
             // labelitens
@@ -255,39 +261,26 @@
             labelitens.AutoSize = true;
             labelitens.BackColor = Color.Transparent;
             labelitens.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelitens.Location = new Point(19, 29);
+            labelitens.Location = new Point(33, 78);
             labelitens.Name = "labelitens";
             labelitens.Size = new Size(108, 18);
             labelitens.TabIndex = 8;
             labelitens.Text = "Itens do Tema:";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.Control;
-            label1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(74, 256);
-            label1.Name = "label1";
-            label1.Size = new Size(117, 18);
-            label1.TabIndex = 15;
-            label1.Text = "Cadastro Festa";
-            label1.Click += label1_Click;
-            // 
-            // FormFesta
+            // TelaFestaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(857, 350);
+            ClientSize = new Size(712, 350);
             ControlBox = false;
-            Controls.Add(label1);
             Controls.Add(titelFesta);
             Controls.Add(controlBotoes);
             Controls.Add(panelFesta);
             Controls.Add(panelTema);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "FormFesta";
-            StartPosition = FormStartPosition.CenterParent;
+            Name = "TelaFestaForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Festas";
             panelFesta.ResumeLayout(false);
             panelFesta.PerformLayout();
@@ -300,15 +293,13 @@
         #endregion
         private Label labelEndereço;
         private TextBox txtEndereco;
-        private DateTimePicker dtpData;
+        private DateTimePicker txtData;
         private Label labelData;
         private Label labelTema;
         private ComboBox cmbTema;
         private Panel panelFesta;
         private Label labelHoraI;
         private Label labelHoraF;
-        private MaskedTextBox mkbHoraF;
-        private MaskedTextBox mtbHoraI;
         private Botoes controlBotoes;
         private Label titelFesta;
         private Label labelID;
@@ -316,8 +307,9 @@
         private Label labelcliente;
         private ComboBox cmbCliente;
         private Panel panelTema;
-        private Label label1;
         private ListBox listItensTema;
         private Label labelitens;
+        private DateTimePicker txtHoraFinal;
+        private DateTimePicker txtHoraInicial;
     }
 }

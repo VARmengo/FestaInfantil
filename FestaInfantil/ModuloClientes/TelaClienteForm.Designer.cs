@@ -1,6 +1,6 @@
 ﻿namespace FestaInfantil
 {
-    partial class FormClientes
+    partial class TelaClienteForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaClienteForm));
             panelCliente = new Panel();
             txtId = new TextBox();
             labelid = new Label();
@@ -176,7 +176,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormClientes";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Clientes";
             panelCliente.ResumeLayout(false);
             panelCliente.PerformLayout();

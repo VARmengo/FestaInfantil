@@ -63,7 +63,9 @@
             grid.DefaultCellStyle = dataGridViewCellStyle2;
             grid.Dock = DockStyle.Fill;
             grid.Location = new Point(0, 0);
+            grid.MultiSelect = false;
             grid.Name = "grid";
+            grid.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -73,6 +75,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             grid.RowTemplate.Height = 25;
+            grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             grid.ShowEditingIcon = false;
             grid.Size = new Size(976, 535);
             grid.TabIndex = 0;

@@ -1,13 +1,4 @@
-﻿using FestaInfantil.ModuloClientes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace FestaInfantil.ModuloTema
 {
@@ -59,6 +50,11 @@ namespace FestaInfantil.ModuloTema
 
         public int ObterIdSelecionado()
         {
+            if (grid.Rows.Count == 0)
+            {
+                return 0;
+            }
+
             int id = Convert.ToInt32(grid.SelectedRows[0].Cells["id"].Value);
 
             return id;

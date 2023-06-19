@@ -5,6 +5,7 @@ namespace FestaInfantil.Dominio.ModuloTema
     public class Tema : EntidadeBase<Tema>
     {
         public string tema;
+        public decimal valorTotal;
         public List<ItemTema> itemsDeTema;
 
         public Tema(string tema)

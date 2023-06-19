@@ -45,7 +45,6 @@ namespace FestaInfantil.ModuloAluguel
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Aluguel aluguel = telaAluguel.ObterAluguel();
-
                 repositorioAluguel.Inserir(aluguel);
 
                 CarregarAluguel();

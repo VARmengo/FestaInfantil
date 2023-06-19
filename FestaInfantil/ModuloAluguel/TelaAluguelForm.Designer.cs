@@ -114,11 +114,13 @@
             cmbTipoCliente.Name = "cmbTipoCliente";
             cmbTipoCliente.Size = new Size(121, 23);
             cmbTipoCliente.TabIndex = 20;
+            cmbTipoCliente.SelectedIndexChanged += cmbTipoCliente_SelectedIndexChanged;
             // 
             // txtAluguelDesconto
             // 
             txtAluguelDesconto.Location = new Point(366, 162);
             txtAluguelDesconto.Name = "txtAluguelDesconto";
+            txtAluguelDesconto.ReadOnly = true;
             txtAluguelDesconto.Size = new Size(100, 23);
             txtAluguelDesconto.TabIndex = 21;
             // 
@@ -126,6 +128,7 @@
             // 
             txtAluguelTotal.Location = new Point(366, 116);
             txtAluguelTotal.Name = "txtAluguelTotal";
+            txtAluguelTotal.ReadOnly = true;
             txtAluguelTotal.Size = new Size(100, 23);
             txtAluguelTotal.TabIndex = 22;
             // 
@@ -153,6 +156,7 @@
             cmbTema.Name = "cmbTema";
             cmbTema.Size = new Size(121, 23);
             cmbTema.TabIndex = 26;
+            cmbTema.SelectedIndexChanged += cmbTema_SelectedIndexChanged;
             // 
             // label6
             // 

@@ -19,7 +19,7 @@ namespace FestaInfantil
 
             Tema tema = ObterTema();
 
-            ConfigurarCheckBoxSelecionados(tema.itemsDeTema);
+            ConfigurarCheckBoxSelecionados(tema.itemsDeTema, tema);
 
             string[] erros = tema.Validar();
 
@@ -71,7 +71,7 @@ namespace FestaInfantil
             chbFantasias.Checked = itensSelecionados.Any(item => item.Nome == chbFantasias.Text);
         }
 
-        public void ConfigurarCheckBoxSelecionados(List<ItemTema> items)
+        public void ConfigurarCheckBoxSelecionados(List<ItemTema> items, Tema tema)
         {
             CheckBox[] checkBoxes =
             {
@@ -88,7 +88,9 @@ namespace FestaInfantil
                 if (checkBox.Checked)
                 {
                     items.RemoveAll(x => x.Nome == checkBox.Text);
-                    items.Add(new ItemTema(checkBox.Text));
+                    ItemTema item = new ItemTema(checkBox.Text);
+                    tema.valorTotal += item.Preco;
+                    items.Add(item);                    
                 }
             }
         }

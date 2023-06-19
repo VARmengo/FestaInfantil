@@ -66,9 +66,14 @@ namespace FestaInfantil.ModuloAluguel
             Festa festa = (Festa)cmbFesta.SelectedItem;
             Cliente cliente = (Cliente)cmbCliente.SelectedItem;
             Tema tema = (Tema)cmbTema.SelectedItem;
+            decimal valorAluguelCompleto = Convert.ToDecimal(txtAluguelTotal.Text);
+            decimal valorAluguelDesconto = Convert.ToDecimal(txtAluguelDesconto.Text);
             TipoCliente tipoCliente = (TipoCliente)cmbTipoCliente.SelectedItem;
-            double valorAluguelCompleto = Convert.ToDouble(txtAluguelTotal.Text);
-            double valorAluguelDesconto = Convert.ToDouble(txtAluguelDesconto.Text);
+
+            if (tipoCliente == TipoCliente.Antigo)
+            {
+                valorAluguelDesconto = tema.valorTotal * 0.2m;
+            }
 
             Aluguel aluguel = new Aluguel(festa, cliente, tema, tipoCliente, valorAluguelCompleto, valorAluguelDesconto);
 
@@ -117,14 +122,52 @@ namespace FestaInfantil.ModuloAluguel
             cmbFesta.SelectedItem = aluguelSelecionado.festa;
             cmbCliente.SelectedItem = aluguelSelecionado.cliente;
             cmbTema.SelectedItem = aluguelSelecionado.tema;
+            txtAluguelTotal.Text = aluguelSelecionado.tema.valorTotal.ToString();
             cmbTipoCliente.SelectedItem = aluguelSelecionado.tipoCliente;
-            txtAluguelTotal.Text = aluguelSelecionado.valorAluguelCompleto.ToString();
             txtAluguelDesconto.Text = aluguelSelecionado.valorAluguelDesconto.ToString();
         }
 
         private void TelaAluguelForm_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbTema_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Tema temaSelecionado = cmbTema.SelectedItem as Tema;
+
+            if (temaSelecionado == null)
+                return;
+
+            decimal calculoAluguelDesconto = temaSelecionado.valorTotal * 0.2m;
+            decimal valorAluguelDesconto = temaSelecionado.valorTotal - calculoAluguelDesconto;
+            txtAluguelTotal.Text = temaSelecionado.valorTotal.ToString();
+            txtAluguelDesconto.Text = valorAluguelDesconto.ToString();
+        }
+
+        private void cmbTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Tema temaSelecionado = cmbTema.SelectedItem as Tema;
+
+            if (temaSelecionado == null)
+                return;
+
+            TipoCliente tipoCliente = (TipoCliente)cmbTipoCliente.SelectedItem;
+
+
+            if(tipoCliente == TipoCliente.Antigo)
+            {
+                decimal calculoAluguelDesconto = temaSelecionado.valorTotal * 0.2m;
+                decimal valorAluguelDesconto = temaSelecionado.valorTotal - calculoAluguelDesconto;
+                txtAluguelTotal.Text = temaSelecionado.valorTotal.ToString();
+                txtAluguelDesconto.Text = valorAluguelDesconto.ToString();
+            }
+
+            else if (tipoCliente == TipoCliente.Novo)
+            {
+                txtAluguelTotal.Text = temaSelecionado.valorTotal.ToString();
+                txtAluguelDesconto.Text = temaSelecionado.valorTotal.ToString();
+            }
         }
     }
 }

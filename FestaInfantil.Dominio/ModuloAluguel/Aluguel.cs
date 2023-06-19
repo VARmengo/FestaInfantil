@@ -10,10 +10,10 @@ namespace FestaInfantil.Dominio.ModuloAluguel
         public Cliente cliente;
         public Tema tema;
         public TipoCliente tipoCliente;
-        public double valorAluguelCompleto;
-        public double valorAluguelDesconto;
+        public decimal valorAluguelCompleto;
+        public decimal valorAluguelDesconto;
 
-        public Aluguel(Festa festa, Cliente cliente, Tema tema, TipoCliente tipoCliente, double valorAluguelCompleto, double valorAluguelDesconto)
+        public Aluguel(Festa festa, Cliente cliente, Tema tema, TipoCliente tipoCliente, decimal valorAluguelCompleto, decimal valorAluguelDesconto)
         {
             this.festa = festa;
             this.cliente = cliente;

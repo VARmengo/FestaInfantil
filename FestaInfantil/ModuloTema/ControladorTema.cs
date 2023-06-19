@@ -28,7 +28,7 @@ namespace FestaInfantil.ModuloTema
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Tema tema = telaTema.ObterTema();
-                telaTema.ConfigurarCheckBoxSelecionados(tema.itemsDeTema);
+                telaTema.ConfigurarCheckBoxSelecionados(tema.itemsDeTema, tema);
 
                 repositorioTema.Inserir(tema);
 
@@ -59,7 +59,7 @@ namespace FestaInfantil.ModuloTema
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Tema tema = telaTema.ObterTema();
-                telaTema.ConfigurarCheckBoxSelecionados(tema.itemsDeTema);
+                telaTema.ConfigurarCheckBoxSelecionados(tema.itemsDeTema, tema);
 
                 repositorioTema.Editar(tema.id, tema);
 

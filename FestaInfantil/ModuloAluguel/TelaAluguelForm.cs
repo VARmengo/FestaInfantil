@@ -1,7 +1,8 @@
 ﻿using FestaInfantil.Compartilhado;
-using FestaInfantil.ModuloClientes;
-using FestaInfantil.ModuloFest;
-using FestaInfantil.ModuloTema;
+using FestaInfantil.Dominio.ModuloAluguel;
+using FestaInfantil.Dominio.ModuloClientes;
+using FestaInfantil.Dominio.ModuloFest;
+using FestaInfantil.Dominio.ModuloTema;
 
 namespace FestaInfantil.ModuloAluguel
 {

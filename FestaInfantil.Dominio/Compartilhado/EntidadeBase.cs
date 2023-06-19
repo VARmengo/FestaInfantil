@@ -1,6 +1,4 @@
-﻿
-
-namespace FestaInfantil.Compartilhado
+﻿namespace FestaInfantil.Dominio.Compartilhado
 {
     public abstract class EntidadeBase<TEntidade>
     {

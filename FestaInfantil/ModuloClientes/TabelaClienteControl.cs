@@ -1,5 +1,7 @@
 ﻿
 
+using FestaInfantil.Dominio.ModuloClientes;
+
 namespace FestaInfantil.ModuloClientes
 {
     public partial class TabelaClienteControl : UserControl

@@ -1,8 +1,7 @@
-﻿using FestaInfantil.Compartilhado;
-using FestaInfantil.ModuloClientes;
-using FestaInfantil.ModuloTema;
+﻿using FestaInfantil.Dominio.ModuloClientes;
+using FestaInfantil.Dominio.ModuloTema;
 
-namespace FestaInfantil.ModuloFest
+namespace FestaInfantil.Dominio.ModuloFest
 {
     public class Festa : EntidadeBase<Festa>
     {        

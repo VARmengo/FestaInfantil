@@ -37,7 +37,7 @@
             btnSalvar.BackColor = Color.White;
             btnSalvar.Cursor = Cursors.Hand;
             btnSalvar.FlatStyle = FlatStyle.Flat;
-            btnSalvar.Image = Properties.Resources.save;
+            btnSalvar.Image = WinApp.Properties.Resources.save;
             btnSalvar.Location = new Point(13, 3);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(82, 81);
@@ -49,7 +49,7 @@
             btnSair.BackColor = Color.White;
             btnSair.Cursor = Cursors.Hand;
             btnSair.FlatStyle = FlatStyle.Flat;
-            btnSair.Image = Properties.Resources.exit;
+            btnSair.Image = WinApp.Properties.Resources.exit;
             btnSair.Location = new Point(112, 3);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(82, 81);

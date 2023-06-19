@@ -1,4 +1,4 @@
-﻿namespace FestaInfantil.ModuloAluguel
+﻿namespace FestaInfantil.Dominio.ModuloAluguel
 {
     public enum TipoCliente
     {

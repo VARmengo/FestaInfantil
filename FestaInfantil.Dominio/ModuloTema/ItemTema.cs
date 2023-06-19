@@ -1,4 +1,4 @@
-﻿namespace FestaInfantil.ModuloTema
+﻿namespace FestaInfantil.Dominio.ModuloTema
 {
     public class ItemTema
     {

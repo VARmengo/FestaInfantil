@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestaInfantil", "FestaInfantil\FestaInfantil.csproj", "{11DF1F24-D418-4870-B4EC-18845596E6FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestaInfantil.WinApp", "FestaInfantil\FestaInfantil.WinApp.csproj", "{11DF1F24-D418-4870-B4EC-18845596E6FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestaInfantil.Dominio", "FestaInfantil.Dominio\FestaInfantil.Dominio.csproj", "{64368323-9E2D-4488-A407-815B8BD49E75}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestaInfantil.Infra.Dados.Memoria", "FestaInfantil.Infra.Dados.Memoria\FestaInfantil.Infra.Dados.Memoria.csproj", "{CF8A593E-2A73-4A85-B31A-1B4C67386BF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{11DF1F24-D418-4870-B4EC-18845596E6FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11DF1F24-D418-4870-B4EC-18845596E6FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11DF1F24-D418-4870-B4EC-18845596E6FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64368323-9E2D-4488-A407-815B8BD49E75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64368323-9E2D-4488-A407-815B8BD49E75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64368323-9E2D-4488-A407-815B8BD49E75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64368323-9E2D-4488-A407-815B8BD49E75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF8A593E-2A73-4A85-B31A-1B4C67386BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF8A593E-2A73-4A85-B31A-1B4C67386BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF8A593E-2A73-4A85-B31A-1B4C67386BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF8A593E-2A73-4A85-B31A-1B4C67386BF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

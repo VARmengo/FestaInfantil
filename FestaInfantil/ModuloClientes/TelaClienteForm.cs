@@ -1,4 +1,4 @@
-﻿using FestaInfantil.ModuloClientes;
+﻿using FestaInfantil.Dominio.ModuloClientes;
 
 namespace FestaInfantil
 {

@@ -46,10 +46,10 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.varmengo2;
-            pictureBox1.ErrorImage = Properties.Resources.varmengo2;
-            pictureBox1.Image = Properties.Resources.varmengo2;
-            pictureBox1.InitialImage = Properties.Resources.varmengo2;
+            pictureBox1.BackgroundImage = WinApp.Properties.Resources.varmengo2;
+            pictureBox1.ErrorImage = WinApp.Properties.Resources.varmengo2;
+            pictureBox1.Image = WinApp.Properties.Resources.varmengo2;
+            pictureBox1.InitialImage = WinApp.Properties.Resources.varmengo2;
             pictureBox1.Location = new Point(77, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(101, 119);

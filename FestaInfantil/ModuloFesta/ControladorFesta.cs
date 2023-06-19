@@ -1,6 +1,10 @@
 ﻿using FestaInfantil.Compartilhado;
-using FestaInfantil.ModuloClientes;
-using FestaInfantil.ModuloTema;
+using FestaInfantil.Dominio.ModuloClientes;
+using FestaInfantil.Dominio.ModuloFest;
+using FestaInfantil.Dominio.ModuloTema;
+using FestaInfantil.Infra.Dados.ModuloClientes;
+using FestaInfantil.Infra.Dados.ModuloFest;
+using FestaInfantil.Infra.Dados.ModuloTema;
 
 namespace FestaInfantil.ModuloFest
 {

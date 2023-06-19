@@ -1,6 +1,6 @@
-﻿using FestaInfantil.Compartilhado;
-using FestaInfantil.ModuloClientes;
-namespace FestaInfantil.ModuloFest
+﻿using FestaInfantil.Dominio.ModuloFest;
+
+namespace FestaInfantil.Infra.Dados.ModuloFest
 {
     public class RepositorioFesta : RepositorioBase<Festa>
     {

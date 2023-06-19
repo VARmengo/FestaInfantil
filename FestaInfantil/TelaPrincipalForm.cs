@@ -1,3 +1,13 @@
+using FestaInfantil.Dominio.ModuloAluguel;
+using FestaInfantil.Dominio.ModuloClientes;
+using FestaInfantil.Dominio.ModuloTema;
+using FestaInfantil.Dominio.ModuloFest;
+
+using FestaInfantil.Infra.Dados.ModuloClientes;
+using FestaInfantil.Infra.Dados.ModuloTema;
+using FestaInfantil.Infra.Dados.ModuloFest;
+using FestaInfantil.Infra.Dados.Memoria.ModuloAluguel;
+
 using FestaInfantil.Compartilhado;
 using FestaInfantil.ModuloClientes;
 using FestaInfantil.ModuloTema;

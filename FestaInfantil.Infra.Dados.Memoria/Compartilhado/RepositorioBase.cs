@@ -1,6 +1,6 @@
-﻿
+﻿using FestaInfantil.Dominio.Compartilhado;
 
-namespace FestaInfantil.Compartilhado
+namespace FestaInfantil.Infra.Dados.Memoria.Compartilhado
 {
     public abstract class RepositorioBase<TEntidade>
         where TEntidade : EntidadeBase<TEntidade>

@@ -1,6 +1,6 @@
-﻿using FestaInfantil.Compartilhado;
+﻿
 
-namespace FestaInfantil.ModuloClientes
+namespace FestaInfantil.Dominio.ModuloClientes
 {
     public class Cliente : EntidadeBase<Cliente>
     {

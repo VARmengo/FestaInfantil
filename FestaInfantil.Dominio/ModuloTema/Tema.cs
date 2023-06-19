@@ -1,6 +1,6 @@
-﻿using FestaInfantil.Compartilhado;
+﻿
 
-namespace FestaInfantil.ModuloTema
+namespace FestaInfantil.Dominio.ModuloTema
 {
     public class Tema : EntidadeBase<Tema>
     {

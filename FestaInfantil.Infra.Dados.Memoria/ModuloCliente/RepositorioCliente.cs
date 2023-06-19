@@ -1,6 +1,6 @@
-﻿using FestaInfantil.Compartilhado;
+﻿using FestaInfantil.Dominio.ModuloClientes;
 
-namespace FestaInfantil.ModuloClientes
+namespace FestaInfantil.Infra.Dados.ModuloClientes
 {
     public class RepositorioCliente : RepositorioBase<Cliente>
     {
